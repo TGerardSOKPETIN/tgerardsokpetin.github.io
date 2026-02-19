@@ -1116,6 +1116,34 @@ a{
 .project-image img:hover{
   transform: scale(1.02);
 }
+.project-detail{
+  margin-top: 30px;
+  padding: 20px 25px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 14px;
+}
+
+.project-detail h2{
+  color: inherit; /* garde la même couleur que ton site */
+  font-weight: 600;
+}
+
+.project-text{
+  color: inherit; /* même couleur que le reste */
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.project-text strong{
+  font-weight: 600;
+}
+
+.project-image img{
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+}
+
 
 
 
