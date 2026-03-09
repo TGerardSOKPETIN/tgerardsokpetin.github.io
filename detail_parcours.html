@@ -3,8 +3,165 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projet — Segmentation de la mortalité</title>
+  <title>Mon parcours — Gérard Sokpetin</title>
   <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    .timeline-page-title{
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.15;
+      margin: 0 0 40px 0;
+      color: #0f172a;
+    }
+
+    .timeline-section{
+      margin-top: 56px;
+    }
+
+    .timeline-section:first-of-type{
+      margin-top: 0;
+    }
+
+    .timeline-heading{
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 24px;
+    }
+
+    .timeline{
+      position: relative;
+      padding-left: 34px;
+    }
+
+    .timeline::before{
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 10px;
+      width: 2px;
+      background: linear-gradient(180deg, #c7d2fe 0%, #e2e8f0 100%);
+    }
+
+    .timeline-item{
+      position: relative;
+      margin-bottom: 28px;
+    }
+
+    .timeline-item:last-child{
+      margin-bottom: 0;
+    }
+
+    .timeline-dot{
+      position: absolute;
+      left: -31px;
+      top: 26px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #4f7df3;
+      border: 4px solid #eef4ff;
+      box-shadow: 0 0 0 1px rgba(79,125,243,.18);
+    }
+
+    .timeline-card{
+      background: #ffffff;
+      border: 1px solid #e7ecf3;
+      border-radius: 18px;
+      padding: 24px 26px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-card::before{
+      content: "";
+      position: absolute;
+      top: 18px;
+      left: 0;
+      width: 5px;
+      height: calc(100% - 36px);
+      border-radius: 0 8px 8px 0;
+      background: #4f7df3;
+    }
+
+    .timeline-card--edu::before{
+      background: #e85d75;
+    }
+
+    .timeline-role{
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 6px 0;
+      padding-left: 10px;
+    }
+
+    .timeline-org{
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #4f7df3;
+      margin: 0 0 6px 0;
+      padding-left: 10px;
+    }
+
+    .timeline-card--edu .timeline-org{
+      color: #d9485f;
+    }
+
+    .timeline-meta{
+      font-size: 0.95rem;
+      color: #64748b;
+      margin-bottom: 14px;
+      padding-left: 10px;
+    }
+
+    .timeline-list{
+      margin: 0;
+      padding-left: 28px;
+      color: #334155;
+      line-height: 1.75;
+    }
+
+    .timeline-list li{
+      margin-bottom: 8px;
+    }
+
+    .timeline-list li:last-child{
+      margin-bottom: 0;
+    }
+
+    .back-link{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #4f7df3;
+      font-weight: 600;
+      margin-top: 36px;
+    }
+
+    @media (max-width: 768px){
+      .timeline{
+        padding-left: 24px;
+      }
+
+      .timeline::before{
+        left: 7px;
+      }
+
+      .timeline-dot{
+        left: -22px;
+        width: 14px;
+        height: 14px;
+      }
+
+      .timeline-card{
+        padding: 20px 18px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -12,7 +169,7 @@
   <div class="container header__inner">
     <div class="logo">GS</div>
     <nav class="nav">
-      <a href="../index.html#projets">← Retour</a>
+      <a href="../index.html#parcours">← Retour</a>
       <a href="../index.html#contact">Contact</a>
     </nav>
   </div>
@@ -20,61 +177,113 @@
 
 <section class="section">
   <div class="container">
-    <h1>Segmentation de la mortalité par niveau de richesse</h1>
-    <p class="subtitle">Assurance vie — Solvabilité II / IFRS 17 • SAS / Python</p>
+    <h1 class="timeline-page-title">Mon parcours</h1>
 
-    <div class="project-card" style="margin-top:20px;">
-      <h2>Contexte & problématique</h2>
-      <p>
-        L’objectif est d’évaluer dans quelle mesure des indicateurs liés au niveau de richesse
-        permettent d’améliorer la compréhension et la segmentation de la mortalité, afin de mieux
-        piloter le risque et d’alimenter les analyses réglementaires (Solvabilité II / IFRS 17).
-      </p>
+    <div class="timeline-section">
+      <h2 class="timeline-heading">Expériences professionnelles</h2>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-card">
+            <h3 class="timeline-role">Chargé d’études actuarielles</h3>
+            <p class="timeline-org">Crédit Agricole Assurances Solutions</p>
+            <p class="timeline-meta">Mars 2025 – Septembre 2025 • Paris, France</p>
+            <ul class="timeline-list">
+              <li>Pilotage d’une étude de segmentation du décès par niveau de richesse sur un portefeuille d’épargne de plus de 10 millions de lignes.</li>
+              <li>Développement de modèles statistiques, notamment GLM et analyses Observed/Expected, pour améliorer la cohérence des hypothèses de projection.</li>
+              <li>Construction de lois de mortalité prospectives avec lissage et extrapolation pour la projection long terme des engagements.</li>
+              <li>Contribution aux calculs de provisions Best Estimate en environnement Solvabilité II et IFRS 17, avec participation aux contrôles de cohérence.</li>
+              <li>Réalisation de tests de sensibilité sur les taux de décès et restitution des résultats à la Direction Actuariat.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-card">
+            <h3 class="timeline-role">Chargé d’études actuarielles</h3>
+            <p class="timeline-org">SUNU Assurance</p>
+            <p class="timeline-meta">Mars 2022 – Avril 2023 • Cotonou, Bénin</p>
+            <ul class="timeline-list">
+              <li>Analyse actuarielle et financière d’un portefeuille d’environ 10 000 contrats, avec identification de segments à sur-sinistralité.</li>
+              <li>Réalisation d’études tarifaires sur la fréquence, le coût moyen et le ratio S/P ayant conduit à des ajustements de primes.</li>
+              <li>Suivi mensuel des indicateurs techniques et formulation de recommandations sur les dérives observées.</li>
+              <li>Automatisation des reportings sous SAS et Python, avec réduction significative du temps de production.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-card">
+            <h3 class="timeline-role">Chef de projet statistique (stage)</h3>
+            <p class="timeline-org">Institut National de la Statistique et de la Démographie</p>
+            <p class="timeline-meta">Août 2021 – Janvier 2022 • Cotonou, Bénin</p>
+            <ul class="timeline-list">
+              <li>Conception et automatisation d’outils de collecte et de traitement de données pour des enquêtes statistiques.</li>
+              <li>Réalisation d’une analyse sectorielle de la croissance économique entre 2015 et 2020, utilisée comme support d’interprétation macroéconomique.</li>
+              <li>Production de résultats quantitatifs contribuant à une lecture structurée des dynamiques sectorielles.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
     </div>
 
-    <div class="project-card" style="margin-top:20px;">
-      <h2>Données</h2>
-      <ul class="skills">
-        <li>Portefeuille assurance vie / épargne-retraite</li>
-        <li>Données volumineuses (SAS) : variables socio-éco, contrats, historiques</li>
-        <li>Variables cibles : décès / exposition / indicateurs de mortalité</li>
-      </ul>
+    <div class="timeline-section">
+      <h2 class="timeline-heading">Formation</h2>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-card timeline-card--edu">
+            <h3 class="timeline-role">Master 2 Banque, Finance, Assurance — Ingénierie de l’Assurance</h3>
+            <p class="timeline-org">Université Sorbonne</p>
+            <p class="timeline-meta">2023 – 2025 • Paris, France</p>
+            <ul class="timeline-list">
+              <li>Formation orientée actuariat, assurance, gestion des risques et modélisation financière.</li>
+              <li>Approfondissement des enjeux techniques liés à Solvabilité II, IFRS 17 et à l’analyse actuarielle.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-card timeline-card--edu">
+            <h3 class="timeline-role">Master 2 Statistiques et Probabilités Appliquées</h3>
+            <p class="timeline-org">Institut de Mathématiques et de Sciences Physiques (IMSP)</p>
+            <p class="timeline-meta">2019 – 2021 • Dangbo, Bénin</p>
+            <ul class="timeline-list">
+              <li>Formation approfondie en probabilités, statistique appliquée, modélisation et analyse quantitative.</li>
+              <li>Consolidation des bases méthodologiques nécessaires à l’analyse des données et à la modélisation du risque.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-card timeline-card--edu">
+            <h3 class="timeline-role">Classes préparatoires — Licence Mathématiques</h3>
+            <p class="timeline-org">Institut de Mathématiques et de Sciences Physiques (IMSP)</p>
+            <p class="timeline-meta">2015 – 2019 • Dangbo, Bénin</p>
+            <ul class="timeline-list">
+              <li>Formation scientifique exigeante centrée sur les mathématiques, la rigueur analytique et le raisonnement quantitatif.</li>
+              <li>Socle fondateur de mon parcours en statistique, finance et actuariat.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
     </div>
 
-    <div class="project-card" style="margin-top:20px;">
-      <h2>Méthodologie</h2>
-      <ul class="skills">
-        <li>Contrôles qualité & préparation des données</li>
-        <li>Segmentation : tests statistiques et analyse descriptive</li>
-        <li>Modélisation : GLM / modèles ML (ex : XGBoost) selon les besoins</li>
-        <li>Interprétation : comparaison des segments et mise en évidence des facteurs</li>
-      </ul>
-    </div>
-
-    <div class="project-card" style="margin-top:20px;">
-      <h2>Résultats (exemples à compléter)</h2>
-      <ul class="skills">
-        <li>Segments de richesse présentant des profils de mortalité distincts</li>
-        <li>Amélioration de la capacité explicative vs segmentation classique</li>
-        <li>Restitution sous forme d’indicateurs & graphiques pour les équipes métiers</li>
-      </ul>
-      <p class="subtitle">➡️ Ici, on ajoutera plus tard tes graphiques/visuels (Canva ou figures).</p>
-    </div>
-
-    <div class="project-card" style="margin-top:20px;">
-      <h2>Impact décisionnel</h2>
-      <ul class="skills">
-        <li>Meilleure lecture du risque pour le pilotage produit</li>
-        <li>Support aux analyses S2 / IFRS 17</li>
-        <li>Base méthodologique réutilisable sur d’autres segmentations</li>
-      </ul>
-    </div>
-
+    <a href="../index.html#parcours" class="back-link">← Retour à la page d’accueil</a>
   </div>
 </section>
 
-<footer class="footer">
-  <p>© 2025 Gérard Sokpetin</p>
+<footer class="footer footer--pro">
+  <div class="container footer__inner">
+    <p>© 2025 Gérard Sokpetin</p>
+    <p class="footer__muted">Actuariat & Data — Portfolio</p>
+  </div>
 </footer>
 
 </body>
