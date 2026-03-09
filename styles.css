@@ -1255,3 +1255,12 @@ a{
   line-height: 1.85;
   color: #4f5f78;
 }
+.parcours-intro {
+  margin: 0 0 18px 0;
+  width: 100%;
+  max-width: none;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #4f5f78;
+  text-align: justify;
+}
