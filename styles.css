@@ -1239,3 +1239,19 @@ a{
     line-height: 1.75;
   }
 }
+
+.parcours-case {
+  padding: 0;
+}
+
+.parcours-box {
+  padding: 28px 30px 24px;
+}
+
+.parcours-intro {
+  margin: 0 0 18px 0;
+  max-width: 920px;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #4f5f78;
+}
