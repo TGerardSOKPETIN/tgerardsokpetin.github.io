@@ -1188,6 +1188,46 @@ a{
   transform: translateY(-2px);
   opacity: 0.92;
 }
+.parcours-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#parcours .section_title {
+  max-width: 780px;
+  margin-bottom: 22px;
+}
+
+#parcours .parcours-card {
+  max-width: 760px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid #ece7df;
+  border-radius: 18px;
+  padding: 26px 28px;
+  box-shadow: 0 8px 24px rgba(18, 32, 73, 0.05);
+  margin-bottom: 24px;
+}
+
+#parcours .section_desc {
+  margin: 0;
+  max-width: none;
+  line-height: 1.85;
+}
+
+#parcours .btn-primary {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: #4f7df3;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+#parcours .btn-primary:hover {
+  transform: translateY(-2px);
+}
 
 
 
