@@ -122,6 +122,13 @@
       justify-content: center;
       align-items: center;
       min-height: 360px;
+      overflow: hidden;
+    }
+
+    .radar-wrap svg{
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
     .bars-list{
@@ -326,7 +333,7 @@
             <div>
               <p class="overview-subtitle">Positionnement global</p>
               <div class="radar-wrap">
-                <svg viewBox="0 0 420 420" width="100%" max-width="420" aria-label="Radar des compétences">
+                <svg viewBox="0 0 420 420" aria-label="Radar des compétences">
                   <defs>
                     <filter id="shadow">
                       <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity=".10"/>
@@ -353,15 +360,15 @@
 
                     <polygon
                       points="
-                        0,-128
-                        82,-97
-                        131,-23
-                        109,67
-                        45,122
-                        -47,128
-                        -115,71
-                        -139,-24
-                        -92,-109
+                        0,-125
+                        70,-83
+                        111,-20
+                        89,55
+                        40,109
+                        -40,109
+                        -95,59
+                        -116,-20
+                        -80,-95
                       "
                       fill="rgba(79,125,243,.35)"
                       stroke="#1e5dc8"
@@ -370,27 +377,27 @@
                     />
 
                     <g fill="#f4d35e" stroke="#1e5dc8" stroke-width="2">
-                      <circle cx="0" cy="-128" r="5"/>
-                      <circle cx="82" cy="-97" r="5"/>
-                      <circle cx="131" cy="-23" r="5"/>
-                      <circle cx="109" cy="67" r="5"/>
-                      <circle cx="45" cy="122" r="5"/>
-                      <circle cx="-47" cy="128" r="5"/>
-                      <circle cx="-115" cy="71" r="5"/>
-                      <circle cx="-139" cy="-24" r="5"/>
-                      <circle cx="-92" cy="-109" r="5"/>
+                      <circle cx="0" cy="-125" r="5"/>
+                      <circle cx="70" cy="-83" r="5"/>
+                      <circle cx="111" cy="-20" r="5"/>
+                      <circle cx="89" cy="55" r="5"/>
+                      <circle cx="40" cy="109" r="5"/>
+                      <circle cx="-40" cy="109" r="5"/>
+                      <circle cx="-95" cy="59" r="5"/>
+                      <circle cx="-116" cy="-20" r="5"/>
+                      <circle cx="-80" cy="-95" r="5"/>
                     </g>
 
                     <g font-size="15" fill="#0f3558" font-weight="600">
                       <text x="0" y="-176" text-anchor="middle">Statistiques</text>
                       <text x="118" y="-128" text-anchor="middle">Finance</text>
                       <text x="177" y="-22" text-anchor="start">Actuariat</text>
-                      <text x="152" y="96" text-anchor="start">Gestion du risque</text>
+                      <text x="152" y="96" text-anchor="start">Gestion de projet</text>
                       <text x="58" y="176" text-anchor="middle">Restitution</text>
                       <text x="-58" y="176" text-anchor="middle">Outils</text>
-                      <text x="-162" y="100" text-anchor="end">Data viz</text>
+                      <text x="-162" y="100" text-anchor="end">Visualisation</text>
                       <text x="-177" y="-22" text-anchor="end">Programmation</text>
-                      <text x="-118" y="-128" text-anchor="middle">Méthodes quantitatives</text>
+                      <text x="-118" y="-128" text-anchor="middle">Machine Learning</text>
                     </g>
                   </g>
                 </svg>
@@ -403,38 +410,56 @@
               <div class="bars-list">
                 <div class="bar-row">
                   <div class="bar-label">Statistiques</div>
-                  <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
-                  <div class="bar-value">92%</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
+                  <div class="bar-value">78%</div>
                 </div>
 
                 <div class="bar-row">
                   <div class="bar-label">Finance</div>
-                  <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
-                  <div class="bar-value">82%</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:68%"></div></div>
+                  <div class="bar-value">68%</div>
                 </div>
 
                 <div class="bar-row">
                   <div class="bar-label">Actuariat</div>
-                  <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
-                  <div class="bar-value">88%</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:72%"></div></div>
+                  <div class="bar-value">72%</div>
+                </div>
+
+                <div class="bar-row">
+                  <div class="bar-label">Machine Learning</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:62%"></div></div>
+                  <div class="bar-value">62%</div>
                 </div>
 
                 <div class="bar-row">
                   <div class="bar-label">Programmation</div>
-                  <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-                  <div class="bar-value">90%</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+                  <div class="bar-value">75%</div>
                 </div>
 
                 <div class="bar-row">
                   <div class="bar-label">Visualisation</div>
-                  <div class="bar-track"><div class="bar-fill" style="width:84%"></div></div>
-                  <div class="bar-value">84%</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
+                  <div class="bar-value">70%</div>
+                </div>
+
+                <div class="bar-row">
+                  <div class="bar-label">Outils</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:74%"></div></div>
+                  <div class="bar-value">74%</div>
+                </div>
+
+                <div class="bar-row">
+                  <div class="bar-label">Gestion de projet</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:58%"></div></div>
+                  <div class="bar-value">58%</div>
                 </div>
 
                 <div class="bar-row">
                   <div class="bar-label">Restitution</div>
-                  <div class="bar-track"><div class="bar-fill" style="width:86%"></div></div>
-                  <div class="bar-value">86%</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:73%"></div></div>
+                  <div class="bar-value">73%</div>
                 </div>
               </div>
             </div>
@@ -558,20 +583,20 @@
             <summary>Excel & VBA</summary>
             <div class="accordion-content">
               <ul>
-                <li>Traitement de données, tableaux croisés dynamiques, fonctions avancées et reporting.</li>
-                <li>Automatisation de tâches via VBA dans des contextes de production ou de contrôle.</li>
-                <li>Utilisation pour le suivi d’indicateurs, la consolidation et la restitution métier.</li>
+                <li>Traitement de données, tableaux croisés dynamiques, fonctions avancées et structuration de reportings.</li>
+                <li>Automatisation de tâches répétitives et fiabilisation de traitements via VBA.</li>
+                <li>Utilisation pour la consolidation de données, le suivi d’indicateurs et la restitution métier.</li>
               </ul>
             </div>
           </details>
 
           <details class="tool">
-            <summary>Power BI / Data visualisation</summary>
+            <summary>Dataiku</summary>
             <div class="accordion-content">
               <ul>
-                <li>Conception de tableaux de bord lisibles et orientés décision.</li>
-                <li>Structuration de KPI, mise en forme visuelle et hiérarchisation des messages clés.</li>
-                <li>Utilisation de visualisations pour rendre les résultats exploitables par des publics métier.</li>
+                <li>Utilisation pour la préparation de données, l’exploration, la modélisation et l’automatisation de workflows analytiques.</li>
+                <li>Construction de projets reproductibles intégrant traitement, visualisation et logique métier.</li>
+                <li>Approche adaptée aux environnements collaboratifs et aux cas d’usage orientés data science.</li>
               </ul>
             </div>
           </details>
@@ -580,8 +605,18 @@
             <summary>Qlik Sense</summary>
             <div class="accordion-content">
               <ul>
-                <li>Développement de dashboards dynamiques pour le pilotage de portefeuille et la lecture des tendances.</li>
-                <li>Restitution synthétique d’indicateurs de suivi et d’aide à la décision.</li>
+                <li>Développement de tableaux de bord dynamiques pour le suivi d’indicateurs et l’analyse de portefeuille.</li>
+                <li>Restitution visuelle des tendances et aide à la décision pour les équipes métier.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="tool">
+            <summary>Power BI / Data visualisation</summary>
+            <div class="accordion-content">
+              <ul>
+                <li>Conception de tableaux de bord lisibles, structurés et orientés décision.</li>
+                <li>Hiérarchisation des messages clés et mise en forme de KPI pour des publics non techniques.</li>
               </ul>
             </div>
           </details>
@@ -590,8 +625,8 @@
             <summary>Git / GitHub</summary>
             <div class="accordion-content">
               <ul>
-                <li>Versionning de projets, organisation du code et suivi des évolutions.</li>
-                <li>Publication de travaux, structuration de dépôts et gestion de livrables techniques.</li>
+                <li>Versionning de projets, suivi des évolutions et structuration des livrables techniques.</li>
+                <li>Organisation du code et publication de travaux dans une logique de traçabilité et de collaboration.</li>
               </ul>
             </div>
           </details>
@@ -631,6 +666,13 @@
             <summary>Pragmatisme & adaptabilité</summary>
             <div class="accordion-content">
               <p>Capacité à m’adapter à des environnements variés et à proposer des solutions réalistes, utiles et rapidement mobilisables.</p>
+            </div>
+          </details>
+
+          <details class="soft">
+            <summary>Gestion de projet</summary>
+            <div class="accordion-content">
+              <p>Capacité à structurer un travail, à coordonner les étapes d’un projet analytique et à faire avancer les livrables dans un cadre clair et méthodique.</p>
             </div>
           </details>
         </div>
