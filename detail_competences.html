@@ -3,8 +3,294 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projet — Segmentation de la mortalité</title>
+  <title>Compétences — Gérard Sokpetin</title>
   <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    .skills-hero{
+      background: linear-gradient(135deg, #123f6b 0%, #0f3558 100%);
+      color: #fff;
+      padding: 56px 0 52px;
+      margin-bottom: 44px;
+    }
+
+    .skills-hero h1{
+      margin: 0;
+      font-size: clamp(2.1rem, 4vw, 3.3rem);
+      line-height: 1.1;
+      color: #f6dfb4;
+    }
+
+    .skills-layout{
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 240px;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .skills-main{
+      min-width: 0;
+    }
+
+    .skills-aside{
+      position: sticky;
+      top: 110px;
+      border-left: 1px solid #d9dee8;
+      padding-left: 18px;
+    }
+
+    .skills-aside__title{
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .skills-aside a{
+      display: block;
+      text-decoration: none;
+      color: #4b5563;
+      margin: 8px 0;
+      transition: color .2s ease;
+    }
+
+    .skills-aside a:hover{
+      color: #4f7df3;
+    }
+
+    .skills-intro{
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: #334155;
+      font-style: italic;
+      text-align: center;
+      margin: 0 0 28px;
+    }
+
+    .skills-divider{
+      display: flex;
+      justify-content: center;
+      margin: 18px 0 34px;
+      color: #4f7df3;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .section-block{
+      margin-bottom: 56px;
+      scroll-margin-top: 110px;
+    }
+
+    .section-block h2{
+      font-size: 2rem;
+      line-height: 1.2;
+      color: #0f172a;
+      margin: 0 0 14px;
+    }
+
+    .section-rule{
+      height: 1px;
+      background: #d9dee8;
+      margin-bottom: 28px;
+    }
+
+    .overview-card{
+      background: #fff;
+      border: 1px solid #e6ebf2;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+      margin-bottom: 26px;
+    }
+
+    .overview-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .overview-subtitle{
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .radar-wrap{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 360px;
+    }
+
+    .bars-list{
+      display: grid;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .bar-row{
+      display: grid;
+      grid-template-columns: 150px 1fr 56px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .bar-label{
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .bar-track{
+      height: 14px;
+      border-radius: 999px;
+      background: #e8eef8;
+      overflow: hidden;
+    }
+
+    .bar-fill{
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #4f7df3 0%, #7aa2ff 100%);
+    }
+
+    .bar-value{
+      font-size: .95rem;
+      color: #64748b;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .accordion{
+      display: grid;
+      gap: 18px;
+    }
+
+    .accordion details{
+      background: #fff;
+      border: 1px solid #e6ebf2;
+      border-left: 5px solid #4f7df3;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+    }
+
+    .accordion details.theory{
+      border-left-color: #4f7df3;
+    }
+
+    .accordion details.language{
+      border-left-color: #35b84a;
+    }
+
+    .accordion details.tool{
+      border-left-color: #7c5cff;
+    }
+
+    .accordion details.soft{
+      border-left-color: #ff7a1a;
+    }
+
+    .accordion summary{
+      list-style: none;
+      cursor: pointer;
+      padding: 16px 18px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f172a;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .accordion summary::-webkit-details-marker{
+      display: none;
+    }
+
+    .accordion summary::after{
+      content: "⌄";
+      font-size: 1.1rem;
+      color: #64748b;
+      transition: transform .2s ease;
+    }
+
+    .accordion details[open] summary::after{
+      transform: rotate(180deg);
+    }
+
+    .accordion-content{
+      padding: 16px 18px 18px;
+      color: #334155;
+      line-height: 1.8;
+    }
+
+    .accordion-content p{
+      margin: 0 0 12px;
+    }
+
+    .accordion-content p:last-child{
+      margin-bottom: 0;
+    }
+
+    .accordion-content ul{
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .accordion-content li{
+      margin-bottom: 6px;
+    }
+
+    .back-link{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #4f7df3;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 980px){
+      .skills-layout{
+        grid-template-columns: 1fr;
+      }
+
+      .skills-aside{
+        position: static;
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid #d9dee8;
+        padding-top: 18px;
+        margin-bottom: 10px;
+      }
+
+      .overview-grid{
+        grid-template-columns: 1fr;
+      }
+
+      .bar-row{
+        grid-template-columns: 120px 1fr 48px;
+      }
+    }
+
+    @media (max-width: 640px){
+      .overview-card{
+        padding: 20px 16px;
+      }
+
+      .bar-row{
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .bar-value{
+        text-align: left;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -12,69 +298,364 @@
   <div class="container header__inner">
     <div class="logo">GS</div>
     <nav class="nav">
-      <a href="../index.html#projets">← Retour</a>
+      <a href="../index.html#competences">← Retour</a>
       <a href="../index.html#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<section class="section">
+<section class="skills-hero">
   <div class="container">
-    <h1>Segmentation de la mortalité par niveau de richesse</h1>
-    <p class="subtitle">Assurance vie — Solvabilité II / IFRS 17 • SAS / Python</p>
+    <h1>Compétences</h1>
+  </div>
+</section>
 
-    <div class="project-card" style="margin-top:20px;">
-      <h2>Contexte & problématique</h2>
-      <p>
-        L’objectif est d’évaluer dans quelle mesure des indicateurs liés au niveau de richesse
-        permettent d’améliorer la compréhension et la segmentation de la mortalité, afin de mieux
-        piloter le risque et d’alimenter les analyses réglementaires (Solvabilité II / IFRS 17).
-      </p>
-    </div>
+<section class="section">
+  <div class="container skills-layout">
 
-    <div class="project-card" style="margin-top:20px;">
-      <h2>Données</h2>
-      <ul class="skills">
-        <li>Portefeuille assurance vie / épargne-retraite</li>
-        <li>Données volumineuses (SAS) : variables socio-éco, contrats, historiques</li>
-        <li>Variables cibles : décès / exposition / indicateurs de mortalité</li>
-      </ul>
-    </div>
+    <main class="skills-main">
+      <p class="skills-intro">Vous trouverez ci-dessous une présentation structurée de mes compétences.</p>
+      <div class="skills-divider">⌄</div>
 
-    <div class="project-card" style="margin-top:20px;">
-      <h2>Méthodologie</h2>
-      <ul class="skills">
-        <li>Contrôles qualité & préparation des données</li>
-        <li>Segmentation : tests statistiques et analyse descriptive</li>
-        <li>Modélisation : GLM / modèles ML (ex : XGBoost) selon les besoins</li>
-        <li>Interprétation : comparaison des segments et mise en évidence des facteurs</li>
-      </ul>
-    </div>
+      <section id="vue-ensemble" class="section-block">
+        <h2>Vue d’ensemble des compétences</h2>
+        <div class="section-rule"></div>
 
-    <div class="project-card" style="margin-top:20px;">
-      <h2>Résultats (exemples à compléter)</h2>
-      <ul class="skills">
-        <li>Segments de richesse présentant des profils de mortalité distincts</li>
-        <li>Amélioration de la capacité explicative vs segmentation classique</li>
-        <li>Restitution sous forme d’indicateurs & graphiques pour les équipes métiers</li>
-      </ul>
-      <p class="subtitle">➡️ Ici, on ajoutera plus tard tes graphiques/visuels (Canva ou figures).</p>
-    </div>
+        <div class="overview-card">
+          <div class="overview-grid">
+            <div>
+              <p class="overview-subtitle">Positionnement global</p>
+              <div class="radar-wrap">
+                <svg viewBox="0 0 420 420" width="100%" max-width="420" aria-label="Radar des compétences">
+                  <defs>
+                    <filter id="shadow">
+                      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity=".10"/>
+                    </filter>
+                  </defs>
 
-    <div class="project-card" style="margin-top:20px;">
-      <h2>Impact décisionnel</h2>
-      <ul class="skills">
-        <li>Meilleure lecture du risque pour le pilotage produit</li>
-        <li>Support aux analyses S2 / IFRS 17</li>
-        <li>Base méthodologique réutilisable sur d’autres segmentations</li>
-      </ul>
-    </div>
+                  <g transform="translate(210,210)">
+                    <circle r="40" fill="none" stroke="#d6deea"/>
+                    <circle r="80" fill="none" stroke="#d6deea"/>
+                    <circle r="120" fill="none" stroke="#d6deea"/>
+                    <circle r="160" fill="none" stroke="#d6deea"/>
+
+                    <g stroke="#d6deea">
+                      <line x1="0" y1="0" x2="0" y2="-160"/>
+                      <line x1="0" y1="0" x2="103" y2="-122"/>
+                      <line x1="0" y1="0" x2="154" y2="-27"/>
+                      <line x1="0" y1="0" x2="136" y2="84"/>
+                      <line x1="0" y1="0" x2="55" y2="150"/>
+                      <line x1="0" y1="0" x2="-55" y2="150"/>
+                      <line x1="0" y1="0" x2="-136" y2="84"/>
+                      <line x1="0" y1="0" x2="-154" y2="-27"/>
+                      <line x1="0" y1="0" x2="-103" y2="-122"/>
+                    </g>
+
+                    <polygon
+                      points="
+                        0,-128
+                        82,-97
+                        131,-23
+                        109,67
+                        45,122
+                        -47,128
+                        -115,71
+                        -139,-24
+                        -92,-109
+                      "
+                      fill="rgba(79,125,243,.35)"
+                      stroke="#1e5dc8"
+                      stroke-width="3"
+                      filter="url(#shadow)"
+                    />
+
+                    <g fill="#f4d35e" stroke="#1e5dc8" stroke-width="2">
+                      <circle cx="0" cy="-128" r="5"/>
+                      <circle cx="82" cy="-97" r="5"/>
+                      <circle cx="131" cy="-23" r="5"/>
+                      <circle cx="109" cy="67" r="5"/>
+                      <circle cx="45" cy="122" r="5"/>
+                      <circle cx="-47" cy="128" r="5"/>
+                      <circle cx="-115" cy="71" r="5"/>
+                      <circle cx="-139" cy="-24" r="5"/>
+                      <circle cx="-92" cy="-109" r="5"/>
+                    </g>
+
+                    <g font-size="15" fill="#0f3558" font-weight="600">
+                      <text x="0" y="-176" text-anchor="middle">Statistiques</text>
+                      <text x="118" y="-128" text-anchor="middle">Finance</text>
+                      <text x="177" y="-22" text-anchor="start">Actuariat</text>
+                      <text x="152" y="96" text-anchor="start">Gestion du risque</text>
+                      <text x="58" y="176" text-anchor="middle">Restitution</text>
+                      <text x="-58" y="176" text-anchor="middle">Outils</text>
+                      <text x="-162" y="100" text-anchor="end">Data viz</text>
+                      <text x="-177" y="-22" text-anchor="end">Programmation</text>
+                      <text x="-118" y="-128" text-anchor="middle">Méthodes quantitatives</text>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+            <div>
+              <p class="overview-subtitle">Niveau de pratique par domaine</p>
+
+              <div class="bars-list">
+                <div class="bar-row">
+                  <div class="bar-label">Statistiques</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
+                  <div class="bar-value">92%</div>
+                </div>
+
+                <div class="bar-row">
+                  <div class="bar-label">Finance</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
+                  <div class="bar-value">82%</div>
+                </div>
+
+                <div class="bar-row">
+                  <div class="bar-label">Actuariat</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
+                  <div class="bar-value">88%</div>
+                </div>
+
+                <div class="bar-row">
+                  <div class="bar-label">Programmation</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+                  <div class="bar-value">90%</div>
+                </div>
+
+                <div class="bar-row">
+                  <div class="bar-label">Visualisation</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:84%"></div></div>
+                  <div class="bar-value">84%</div>
+                </div>
+
+                <div class="bar-row">
+                  <div class="bar-label">Restitution</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:86%"></div></div>
+                  <div class="bar-value">86%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="theories" class="section-block">
+        <h2>Théories</h2>
+        <div class="section-rule"></div>
+
+        <div class="accordion">
+          <details class="theory" open>
+            <summary>Statistiques & économétrie</summary>
+            <div class="accordion-content">
+              <ul>
+                <li>Statistiques descriptives, inférentielles et tests d’hypothèses.</li>
+                <li>Régression linéaire simple et multiple, analyse de variance, séries temporelles.</li>
+                <li>Micro-économétrie : modèles à effets fixes et aléatoires.</li>
+                <li>Machine Learning : régression, classification supervisée et non supervisée.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="theory">
+            <summary>Finance</summary>
+            <div class="accordion-content">
+              <ul>
+                <li>Mathématiques financières, valorisation et logique d’actualisation.</li>
+                <li>Notions de gestion actif-passif, d’évaluation du risque et de décision en univers financier.</li>
+                <li>Analyse des mécanismes de marché, lecture économique et financière des modèles.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="theory">
+            <summary>Actuariat & gestion des risques</summary>
+            <div class="accordion-content">
+              <ul>
+                <li>Tarification, fréquence, sévérité, ratio S/P et segmentation du risque.</li>
+                <li>Lois de mortalité, analyse Observed/Expected, provisions Best Estimate.</li>
+                <li>Cadres Solvabilité II et IFRS 17 : interprétation, contrôle de cohérence et restitution.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="theory">
+            <summary>Assurance & exploitation des données</summary>
+            <div class="accordion-content">
+              <p>Application des méthodes quantitatives à l’assurance IARD, à l’assurance vie et à l’épargne-retraite.</p>
+              <ul>
+                <li>Lecture des tendances de sinistralité et identification de facteurs de risque.</li>
+                <li>Construction de tableaux de bord et d’indicateurs utiles au pilotage.</li>
+                <li>Modèles d’aide à la décision pour orienter les actions métier.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section id="langages" class="section-block">
+        <h2>Langages</h2>
+        <div class="section-rule"></div>
+
+        <div class="accordion">
+          <details class="language" open>
+            <summary>Python</summary>
+            <div class="accordion-content">
+              <ul>
+                <li>Traitement et préparation des données avec Pandas, NumPy et Polars.</li>
+                <li>Visualisation avec Matplotlib, Plotly et bibliothèques associées.</li>
+                <li>Machine Learning avec scikit-learn et approches supervisées / non supervisées.</li>
+                <li>Automatisation de traitements et structuration de scripts analytiques réutilisables.</li>
+                <li>Développement d’applications métiers avec Streamlit.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="language">
+            <summary>R</summary>
+            <div class="accordion-content">
+              <ul>
+                <li>Analyse de données, statistiques exploratoires et visualisation.</li>
+                <li>Manipulation de données avec dplyr, tidyr et écosystème tidyverse.</li>
+                <li>Économétrie, analyses factorielles et modélisation statistique.</li>
+                <li>Production de rapports reproductibles et dashboards via Shiny / Quarto selon les besoins.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="language">
+            <summary>SAS</summary>
+            <div class="accordion-content">
+              <ul>
+                <li>Manipulation de bases volumineuses, contrôles qualité et industrialisation des traitements.</li>
+                <li>Production de reportings, KPI et analyses statistiques en environnement assurance.</li>
+                <li>Utilisation dans des contextes métier exigeants, notamment actuariat vie et pilotage portefeuille.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="language">
+            <summary>SQL</summary>
+            <div class="accordion-content">
+              <ul>
+                <li>Manipulation de bases relationnelles et extraction ciblée de données.</li>
+                <li>Jointures, agrégations, filtres et structuration de requêtes analytiques.</li>
+                <li>Lecture et préparation des données nécessaires aux analyses et reportings.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section id="outils" class="section-block">
+        <h2>Outils</h2>
+        <div class="section-rule"></div>
+
+        <div class="accordion">
+          <details class="tool" open>
+            <summary>Excel & VBA</summary>
+            <div class="accordion-content">
+              <ul>
+                <li>Traitement de données, tableaux croisés dynamiques, fonctions avancées et reporting.</li>
+                <li>Automatisation de tâches via VBA dans des contextes de production ou de contrôle.</li>
+                <li>Utilisation pour le suivi d’indicateurs, la consolidation et la restitution métier.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="tool">
+            <summary>Power BI / Data visualisation</summary>
+            <div class="accordion-content">
+              <ul>
+                <li>Conception de tableaux de bord lisibles et orientés décision.</li>
+                <li>Structuration de KPI, mise en forme visuelle et hiérarchisation des messages clés.</li>
+                <li>Utilisation de visualisations pour rendre les résultats exploitables par des publics métier.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="tool">
+            <summary>Qlik Sense</summary>
+            <div class="accordion-content">
+              <ul>
+                <li>Développement de dashboards dynamiques pour le pilotage de portefeuille et la lecture des tendances.</li>
+                <li>Restitution synthétique d’indicateurs de suivi et d’aide à la décision.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="tool">
+            <summary>Git / GitHub</summary>
+            <div class="accordion-content">
+              <ul>
+                <li>Versionning de projets, organisation du code et suivi des évolutions.</li>
+                <li>Publication de travaux, structuration de dépôts et gestion de livrables techniques.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section id="soft-skills" class="section-block">
+        <h2>Soft skills</h2>
+        <div class="section-rule"></div>
+
+        <div class="accordion">
+          <details class="soft" open>
+            <summary>Communication</summary>
+            <div class="accordion-content">
+              <p>Capacité à restituer des résultats techniques à des interlocuteurs non spécialistes, avec clarté et pédagogie.</p>
+            </div>
+          </details>
+
+          <details class="soft">
+            <summary>Rigueur & gestion du temps</summary>
+            <div class="accordion-content">
+              <ul>
+                <li>Sens de l’organisation, respect des délais et exigence de qualité dans les livrables.</li>
+                <li>Capacité à structurer le travail pour produire des résultats fiables dans des contextes exigeants.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="soft">
+            <summary>Curiosité & apprentissage continu</summary>
+            <div class="accordion-content">
+              <p>Veille régulière sur les nouvelles pratiques, les outils et les évolutions en data, actuariat et finance.</p>
+            </div>
+          </details>
+
+          <details class="soft">
+            <summary>Pragmatisme & adaptabilité</summary>
+            <div class="accordion-content">
+              <p>Capacité à m’adapter à des environnements variés et à proposer des solutions réalistes, utiles et rapidement mobilisables.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <a href="../index.html#competences" class="back-link">← Retour à la page d’accueil</a>
+    </main>
+
+    <aside class="skills-aside">
+      <div class="skills-aside__title">Compétences</div>
+      <a href="#vue-ensemble">Vue d’ensemble des compétences</a>
+      <a href="#theories">Théories</a>
+      <a href="#langages">Langages</a>
+      <a href="#outils">Outils</a>
+      <a href="#soft-skills">Soft skills</a>
+    </aside>
 
   </div>
 </section>
 
-<footer class="footer">
-  <p>© 2025 Gérard Sokpetin</p>
+<footer class="footer footer--pro">
+  <div class="container footer__inner">
+    <p>© 2025 Gérard Sokpetin</p>
+    <p class="footer__muted">Actuariat & Data — Portfolio</p>
+  </div>
 </footer>
 
 </body>
