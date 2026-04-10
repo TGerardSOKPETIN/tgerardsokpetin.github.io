@@ -57,48 +57,113 @@
       <h2>Analyse des résultats et implications métier</h2>
 
       <div style="margin-top:24px;">
-  <h3>Analyse exploratoire</h3>
+  <h3 style="margin-bottom:14px;">Analyse exploratoire</h3>
 
   <div style="
     display:flex;
-    gap:24px;
+    gap:28px;
     align-items:flex-start;
     flex-wrap:wrap;
     margin-top:16px;
   ">
-    
-    <div style="flex:1; min-width:320px;">
-      <p style="margin-top:0;">
+
+    <!-- Colonne gauche -->
+    <div style="flex:1.15; min-width:320px;">
+
+      <p style="
+        margin-top:0;
+        margin-bottom:18px;
+        line-height:1.7;
+        color:#4b5563;
+      ">
         Cette analyse exploratoire met en évidence les principaux déterminants du prix
-        et fournit des repères utiles pour la stratégie de tarification de l’agence.
+        et fournit des repères concrets pour mieux positionner les biens sur le marché.
       </p>
 
-      <h4 style="margin-top:18px;">Résultats clés</h4>
-      <ul class="skills">
-        <li><strong>Cœur du marché :</strong> les prix se concentrent principalement entre 200 000 et 350 000.</li>
-        <li><strong>Délai de vente :</strong> un bien reste en moyenne autour de 6 mois sur le marché.</li>
-        <li><strong>Nombre de chambres :</strong> la valorisation augmente nettement avec la capacité du bien.</li>
-        <li><strong>Surface :</strong> la taille du logement structure fortement le niveau de prix.</li>
-        <li><strong>Localisation :</strong> à bien comparable, des écarts significatifs apparaissent selon la ville.</li>
-      </ul>
+      <div style="
+        background:#f8fafc;
+        border:1px solid #e5e7eb;
+        border-radius:14px;
+        padding:18px 18px 8px 18px;
+      ">
+        <h4 style="margin-top:0; margin-bottom:14px;">Enseignements clés</h4>
 
-      <h4 style="margin-top:18px;">Lecture métier</h4>
-      <p>
-        Ces constats montrent qu’une estimation pertinente ne peut pas reposer sur un seul critère.
-        La tarification doit combiner les caractéristiques du bien, sa localisation et les dynamiques
-        observées sur le marché afin de proposer un positionnement prix cohérent et défendable.
-      </p>
+        <div style="display:grid; gap:12px;">
+          <div style="background:#ffffff; border-radius:10px; padding:12px 14px; border-left:4px solid #1f6f8b;">
+            <strong>Cœur du marché</strong><br>
+            <span style="color:#4b5563;">Les prix se concentrent principalement entre 200 000 et 350 000.</span>
+          </div>
+
+          <div style="background:#ffffff; border-radius:10px; padding:12px 14px; border-left:4px solid #1f6f8b;">
+            <strong>Délai de vente</strong><br>
+            <span style="color:#4b5563;">Un bien reste en moyenne autour de 6 mois sur le marché.</span>
+          </div>
+
+          <div style="background:#ffffff; border-radius:10px; padding:12px 14px; border-left:4px solid #1f6f8b;">
+            <strong>Nombre de chambres</strong><br>
+            <span style="color:#4b5563;">La valorisation augmente nettement avec la capacité du bien.</span>
+          </div>
+
+          <div style="background:#ffffff; border-radius:10px; padding:12px 14px; border-left:4px solid #1f6f8b;">
+            <strong>Surface</strong><br>
+            <span style="color:#4b5563;">La taille du logement structure fortement le niveau de prix.</span>
+          </div>
+
+          <div style="background:#ffffff; border-radius:10px; padding:12px 14px; border-left:4px solid #1f6f8b;">
+            <strong>Localisation</strong><br>
+            <span style="color:#4b5563;">À bien comparable, des écarts significatifs apparaissent selon la ville.</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="
+        margin-top:18px;
+        background:linear-gradient(135deg, #eef6fb 0%, #f8fbfd 100%);
+        border:1px solid #dbeafe;
+        border-radius:14px;
+        padding:16px 18px;
+      ">
+        <h4 style="margin-top:0; margin-bottom:10px;">Implication métier</h4>
+        <p style="margin:0; line-height:1.7; color:#374151;">
+          Ces constats montrent qu’une estimation pertinente ne peut pas reposer sur un seul critère.
+          Pour l’agence, une tarification crédible doit combiner les caractéristiques du bien, sa localisation
+          et les dynamiques observées sur le marché afin de proposer un positionnement prix cohérent,
+          défendable et commercialement efficace.
+        </p>
+      </div>
     </div>
 
-    <div style="flex:1; min-width:320px;">
-      <img src="AE.png"
-           alt="Synthèse des analyses exploratoires sur les prix immobiliers"
-           style="width:100%; border-radius:12px; display:block;" />
+    <!-- Colonne droite -->
+    <div style="flex:0.95; min-width:320px;">
+      <div style="
+        background:#ffffff;
+        border:1px solid #e5e7eb;
+        border-radius:16px;
+        padding:12px;
+        box-shadow:0 8px 24px rgba(15, 23, 42, 0.06);
+      ">
+        <img src="AE.png"
+             alt="Synthèse des analyses exploratoires sur les prix immobiliers"
+             style="
+               width:100%;
+               border-radius:12px;
+               display:block;
+             " />
+
+        <p style="
+          margin:12px 4px 4px 4px;
+          font-size:0.92rem;
+          line-height:1.5;
+          color:#6b7280;
+        ">
+          Vue de synthèse des principaux enseignements issus de l’analyse exploratoire du marché immobilier.
+        </p>
+      </div>
     </div>
 
   </div>
 </div>
-
+      
       <div style="margin-top:36px;">
         <h3>Évaluation des modèles prédictifs</h3>
         <p>
