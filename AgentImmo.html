@@ -54,78 +54,138 @@
     </div>
 
     <div class="project-card" style="margin-top:20px;">
-  <h2>Résultats & interprétations</h2>
+      <h2>Analyse des résultats et implications métier</h2>
 
-  <img src="AE.png"
-       alt="Synthèse des résultats de l'étude de tarification immobilière"
-       style="width:100%; border-radius:12px; margin-top:16px;" />
+      <div style="margin-top:24px;">
+        <h3>Analyse exploratoire</h3>
+        <p>
+          Cette première étape vise à comprendre la structure du marché immobilier étudié, à identifier les
+          variables qui influencent le plus le prix des appartements et à faire émerger des constats utiles
+          pour la stratégie de tarification de l’agence.
+        </p>
 
-  <div style="margin-top:24px;">
-    <h3>1. Où se situe le cœur du marché immobilier étudié ?</h3>
-    <p>
-      <strong>Résultat :</strong> La distribution des prix montre qu’une grande partie du marché se concentre
-      dans un segment central compris entre environ 200 000 et 350 000, avec une moyenne proche de 228 122
-      et une médiane autour de 230 058.
-    </p>
-    <p>
-      <strong>Interprétation :</strong> Le marché étudié est principalement positionné sur un segment intermédiaire.
-      Pour l’agence, cela donne un repère clair sur la zone de prix la plus fréquente et permet de mieux situer
-      un bien par rapport au marché observé, qu’il soit en dessous, dans le cœur du marché ou sur un segment plus premium.
-    </p>
-  </div>
+        <img src="AE.png"
+             alt="Synthèse des analyses exploratoires sur les prix immobiliers"
+             style="width:100%; border-radius:12px; margin-top:16px;" />
 
-  <div style="margin-top:24px;">
-    <h3>2. Combien de temps un bien reste-t-il généralement sur le marché ?</h3>
-    <p>
-      <strong>Résultat :</strong> Le temps de présence sur le marché est centré autour de 6 mois, avec une moyenne
-      et une médiane très proches. La majorité des biens est vendue dans un délai voisin de cette durée.
-    </p>
-    <p>
-      <strong>Interprétation :</strong> Ce résultat fournit un délai de référence utile pour le pilotage commercial.
-      Lorsqu’un bien dépasse nettement cette durée, cela peut signaler un prix mal positionné, une attractivité plus faible
-      ou la nécessité d’ajuster la stratégie de commercialisation.
-    </p>
-  </div>
+        <div style="margin-top:20px;">
+          <h4>1. Positionnement global du marché</h4>
+          <p>
+            La distribution des prix met en évidence un segment central du marché situé entre environ
+            200 000 et 350 000, avec une moyenne proche de 228 122 et une médiane autour de 230 058.
+            Le marché étudié apparaît ainsi majoritairement positionné sur une gamme intermédiaire.
+            Pour l’agence, ce repère constitue une base utile pour situer rapidement un bien par rapport
+            au cœur du marché et ajuster plus finement son positionnement commercial.
+          </p>
+        </div>
 
-  <div style="margin-top:24px;">
-    <h3>3. Le nombre de chambres est-il un levier de valorisation du bien ?</h3>
-    <p>
-      <strong>Résultat :</strong> Le prix moyen augmente nettement avec le nombre de chambres. On observe une progression
-      régulière entre les biens de petite capacité et ceux disposant de davantage de chambres.
-    </p>
-    <p>
-      <strong>Interprétation :</strong> Le nombre de chambres apparaît comme un facteur important de valorisation.
-      Pour l’agence, cela confirme qu’un bien plus adapté à une famille ou à un usage plus spacieux bénéficie en moyenne
-      d’un positionnement prix supérieur, ce qui renforce l’intérêt d’intégrer cette variable dans la stratégie de tarification.
-    </p>
-  </div>
+        <div style="margin-top:18px;">
+          <h4>2. Temps de présence sur le marché</h4>
+          <p>
+            Les biens restent en moyenne autour de six mois sur le marché, ce qui fournit un délai de
+            référence intéressant pour apprécier la dynamique commerciale. Lorsqu’un bien dépasse nettement
+            cette durée, cela peut signaler un prix mal ajusté, une attractivité plus faible ou la nécessité
+            d’adapter la stratégie de commercialisation.
+          </p>
+        </div>
 
-  <div style="margin-top:24px;">
-    <h3>4. Dans quelle mesure la taille du bien structure-t-elle sa valeur de marché ?</h3>
-    <p>
-      <strong>Résultat :</strong> Le nuage de points met en évidence une relation croissante très marquée entre la surface
-      et le prix de vente : plus la surface augmente, plus le prix tend à augmenter.
-    </p>
-    <p>
-      <strong>Interprétation :</strong> La surface constitue l’un des déterminants majeurs du prix. C’est une variable centrale
-      pour la modélisation, car elle structure fortement la valeur de marché et permet de construire des estimations plus robustes
-      et plus cohérentes avec les caractéristiques réelles du bien.
-    </p>
-  </div>
+        <div style="margin-top:18px;">
+          <h4>3. Effet du nombre de chambres sur le prix</h4>
+          <p>
+            Le prix moyen augmente de façon marquée avec le nombre de chambres, ce qui montre que la capacité
+            du bien constitue un levier réel de valorisation. Ce constat confirme, du point de vue métier,
+            l’importance d’intégrer les caractéristiques de composition du logement dans l’argumentaire de prix
+            proposé aux vendeurs.
+          </p>
+        </div>
 
-  <div style="margin-top:24px;">
-    <h3>5. À type de maison comparable, les prix changent-ils selon la ville ?</h3>
-    <p>
-      <strong>Résultat :</strong> Les boxplots montrent des écarts de prix significatifs d’une ville à l’autre, même pour
-      des types de biens comparables. La localisation influe donc fortement sur le niveau de prix observé.
-    </p>
-    <p>
-      <strong>Interprétation :</strong> La valeur d’un bien ne dépend pas seulement de ses caractéristiques physiques,
-      mais aussi de son environnement géographique. Pour l’agence, cela signifie qu’une stratégie de prix pertinente doit
-      combiner les attributs du bien avec une lecture locale du marché, afin d’éviter des estimations trop générales.
-    </p>
-  </div>
-</div>
+        <div style="margin-top:18px;">
+          <h4>4. Effet de la surface sur la valeur de marché</h4>
+          <p>
+            La relation entre la surface et le prix de vente apparaît clairement croissante : plus la surface
+            augmente, plus le prix tend à progresser. La taille du bien constitue donc un déterminant majeur
+            de la valeur de marché et représente une variable centrale pour construire une estimation robuste
+            et cohérente.
+          </p>
+        </div>
+
+        <div style="margin-top:18px;">
+          <h4>5. Influence de la localisation</h4>
+          <p>
+            À type de bien comparable, des écarts significatifs de prix apparaissent selon la ville.
+            Ce résultat montre que la localisation pèse fortement dans la formation des prix et qu’une
+            stratégie de tarification pertinente ne peut pas se limiter aux seules caractéristiques physiques
+            du bien : elle doit aussi intégrer une lecture locale du marché.
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top:36px;">
+        <h3>Évaluation des modèles prédictifs</h3>
+        <p>
+          Après l’analyse exploratoire, plusieurs éléments d’évaluation peuvent être mobilisés pour apprécier
+          la qualité des modèles développés. L’objectif est de mesurer leur capacité à produire des estimations
+          fiables, cohérentes avec le marché et suffisamment lisibles pour être utilisées dans une logique
+          d’aide à la décision.
+        </p>
+
+        <div style="margin-top:20px;">
+          <h4>Performance globale des modèles</h4>
+          <p>
+            La comparaison des performances permet d’identifier l’approche la plus pertinente pour concilier
+            précision prédictive, robustesse et stabilité. Dans une perspective métier, cette étape est
+            essentielle, car un modèle plus fiable réduit le risque de sous-évaluation ou de surévaluation
+            des biens et renforce la cohérence des prix proposés par l’agence.
+          </p>
+          <!-- Remplacer le nom du fichier ci-dessous par ton visuel réel -->
+          <img src="performance_modeles.png"
+               alt="Comparaison des performances des modèles"
+               style="width:100%; border-radius:12px; margin-top:12px;" />
+        </div>
+
+        <div style="margin-top:24px;">
+          <h4>Qualité des prédictions</h4>
+          <p>
+            L’analyse conjointe des valeurs réelles et des valeurs prédites permet d’évaluer dans quelle mesure
+            le modèle reproduit correctement la structure observée du marché. Une bonne proximité entre ces deux
+            dimensions renforce la crédibilité de l’outil et son utilité pour accompagner les décisions de
+            tarification au quotidien.
+          </p>
+          <!-- Remplacer le nom du fichier ci-dessous par ton visuel réel -->
+          <img src="reel_vs_predit.png"
+               alt="Comparaison entre prix réels et prix prédits"
+               style="width:100%; border-radius:12px; margin-top:12px;" />
+        </div>
+
+        <div style="margin-top:24px;">
+          <h4>Analyse des erreurs</h4>
+          <p>
+            L’étude des erreurs de prédiction permet d’identifier les segments sur lesquels le modèle est le
+            plus performant, ainsi que les cas où l’incertitude reste plus élevée. Cette lecture est utile pour
+            encadrer l’usage opérationnel du modèle et mieux savoir dans quelles situations une expertise humaine
+            complémentaire reste particulièrement nécessaire.
+          </p>
+          <!-- Remplacer le nom du fichier ci-dessous par ton visuel réel -->
+          <img src="analyse_erreurs.png"
+               alt="Distribution des erreurs de prédiction"
+               style="width:100%; border-radius:12px; margin-top:12px;" />
+        </div>
+
+        <div style="margin-top:24px;">
+          <h4>Variables les plus explicatives</h4>
+          <p>
+            L’analyse de l’importance des variables permet de comprendre quels facteurs pilotent le plus fortement
+            les estimations produites par le modèle. Cette dimension est particulièrement importante dans un contexte
+            métier, car elle ne consiste pas seulement à prédire un prix, mais aussi à expliquer de manière claire
+            les éléments qui justifient ce positionnement sur le marché.
+          </p>
+          <!-- Remplacer le nom du fichier ci-dessous par ton visuel réel -->
+          <img src="importance_variables.png"
+               alt="Importance des variables du modèle"
+               style="width:100%; border-radius:12px; margin-top:12px;" />
+        </div>
+      </div>
+    </div>
 
     <div class="project-card" style="margin-top:20px;">
       <h2>Impact décisionnel</h2>
