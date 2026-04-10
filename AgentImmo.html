@@ -57,68 +57,47 @@
       <h2>Analyse des résultats et implications métier</h2>
 
       <div style="margin-top:24px;">
-        <h3>Analyse exploratoire</h3>
-        <p>
-          Cette première étape vise à comprendre la structure du marché immobilier étudié, à identifier les
-          variables qui influencent le plus le prix des appartements et à faire émerger des constats utiles
-          pour la stratégie de tarification de l’agence.
-        </p>
+  <h3>Analyse exploratoire</h3>
 
-        <img src="AE.png"
-             alt="Synthèse des analyses exploratoires sur les prix immobiliers"
-             style="width:100%; border-radius:12px; margin-top:16px;" />
+  <div style="
+    display:flex;
+    gap:24px;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    margin-top:16px;
+  ">
+    
+    <div style="flex:1; min-width:320px;">
+      <p style="margin-top:0;">
+        Cette analyse exploratoire met en évidence les principaux déterminants du prix
+        et fournit des repères utiles pour la stratégie de tarification de l’agence.
+      </p>
 
-        <div style="margin-top:20px;">
-          <h4>1. Positionnement global du marché</h4>
-          <p>
-            La distribution des prix met en évidence un segment central du marché situé entre environ
-            200 000 et 350 000, avec une moyenne proche de 228 122 et une médiane autour de 230 058.
-            Le marché étudié apparaît ainsi majoritairement positionné sur une gamme intermédiaire.
-            Pour l’agence, ce repère constitue une base utile pour situer rapidement un bien par rapport
-            au cœur du marché et ajuster plus finement son positionnement commercial.
-          </p>
-        </div>
+      <h4 style="margin-top:18px;">Résultats clés</h4>
+      <ul class="skills">
+        <li><strong>Cœur du marché :</strong> les prix se concentrent principalement entre 200 000 et 350 000.</li>
+        <li><strong>Délai de vente :</strong> un bien reste en moyenne autour de 6 mois sur le marché.</li>
+        <li><strong>Nombre de chambres :</strong> la valorisation augmente nettement avec la capacité du bien.</li>
+        <li><strong>Surface :</strong> la taille du logement structure fortement le niveau de prix.</li>
+        <li><strong>Localisation :</strong> à bien comparable, des écarts significatifs apparaissent selon la ville.</li>
+      </ul>
 
-        <div style="margin-top:18px;">
-          <h4>2. Temps de présence sur le marché</h4>
-          <p>
-            Les biens restent en moyenne autour de six mois sur le marché, ce qui fournit un délai de
-            référence intéressant pour apprécier la dynamique commerciale. Lorsqu’un bien dépasse nettement
-            cette durée, cela peut signaler un prix mal ajusté, une attractivité plus faible ou la nécessité
-            d’adapter la stratégie de commercialisation.
-          </p>
-        </div>
+      <h4 style="margin-top:18px;">Lecture métier</h4>
+      <p>
+        Ces constats montrent qu’une estimation pertinente ne peut pas reposer sur un seul critère.
+        La tarification doit combiner les caractéristiques du bien, sa localisation et les dynamiques
+        observées sur le marché afin de proposer un positionnement prix cohérent et défendable.
+      </p>
+    </div>
 
-        <div style="margin-top:18px;">
-          <h4>3. Effet du nombre de chambres sur le prix</h4>
-          <p>
-            Le prix moyen augmente de façon marquée avec le nombre de chambres, ce qui montre que la capacité
-            du bien constitue un levier réel de valorisation. Ce constat confirme, du point de vue métier,
-            l’importance d’intégrer les caractéristiques de composition du logement dans l’argumentaire de prix
-            proposé aux vendeurs.
-          </p>
-        </div>
+    <div style="flex:1; min-width:320px;">
+      <img src="AE.png"
+           alt="Synthèse des analyses exploratoires sur les prix immobiliers"
+           style="width:100%; border-radius:12px; display:block;" />
+    </div>
 
-        <div style="margin-top:18px;">
-          <h4>4. Effet de la surface sur la valeur de marché</h4>
-          <p>
-            La relation entre la surface et le prix de vente apparaît clairement croissante : plus la surface
-            augmente, plus le prix tend à progresser. La taille du bien constitue donc un déterminant majeur
-            de la valeur de marché et représente une variable centrale pour construire une estimation robuste
-            et cohérente.
-          </p>
-        </div>
-
-        <div style="margin-top:18px;">
-          <h4>5. Influence de la localisation</h4>
-          <p>
-            À type de bien comparable, des écarts significatifs de prix apparaissent selon la ville.
-            Ce résultat montre que la localisation pèse fortement dans la formation des prix et qu’une
-            stratégie de tarification pertinente ne peut pas se limiter aux seules caractéristiques physiques
-            du bien : elle doit aussi intégrer une lecture locale du marché.
-          </p>
-        </div>
-      </div>
+  </div>
+</div>
 
       <div style="margin-top:36px;">
         <h3>Évaluation des modèles prédictifs</h3>
