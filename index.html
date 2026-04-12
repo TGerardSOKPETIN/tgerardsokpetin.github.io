@@ -3,64 +3,952 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gérard Sokpetin | Portfolio</title>
+  <title>Gérard Sokpetin | Actuariat & Data Science</title>
   <meta name="description" content="Portfolio – Actuariat, Data Science, Solvabilité II, IFRS 17" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SG39TQLYT6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-SG39TQLYT6');
-    </script>
-  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SG39TQLYT6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SG39TQLYT6');
+  </script>
+
+  <style>
+    /* ===========================
+       TOKENS
+    =========================== */
+    :root {
+      --ink:        #0d1520;
+      --ink-soft:   #3d4f63;
+      --ink-muted:  #7a8fa6;
+      --paper:      #faf8f5;
+      --paper2:     #f2efe9;
+      --paper3:     #e8e3da;
+      --gold:       #b08a4e;
+      --gold-light: #d4aa72;
+      --gold-soft:  #f5ead8;
+      --blue:       #1e3a5f;
+      --blue-mid:   #2d5485;
+      --blue-soft:  #dce8f5;
+      --line:       #ddd8cf;
+      --shadow-sm:  0 2px 8px rgba(13,21,32,.07);
+      --shadow-md:  0 8px 28px rgba(13,21,32,.10);
+      --shadow-lg:  0 20px 60px rgba(13,21,32,.13);
+      --radius:     16px;
+      --radius-sm:  10px;
+    }
+
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-underline-offset: 5px; }
+
+    .container {
+      width: 92%;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* ===========================
+       HEADER
+    =========================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,248,245,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo__monogram {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--blue);
+      color: var(--gold-light);
+      font-family: 'DM Serif Display', serif;
+      font-size: 15px;
+      display: grid;
+      place-items: center;
+      letter-spacing: -.5px;
+    }
+
+    .logo__text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: .01em;
+    }
+
+    .logo__sub {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--ink-muted);
+      display: block;
+      margin-top: 1px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav a {
+      color: var(--ink-soft);
+      padding: 7px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color .15s, background .15s;
+    }
+
+    .nav a:hover {
+      color: var(--ink);
+      background: var(--paper2);
+    }
+
+    .nav .nav__cta {
+      background: var(--blue);
+      color: #fff;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .nav .nav__cta:hover {
+      background: var(--blue-mid);
+      color: #fff;
+    }
+
+    /* ===========================
+       HERO
+    =========================== */
+    .hero {
+      padding: 80px 0 70px;
+    }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      letter-spacing: .2em;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(40px, 5vw, 62px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .name-highlight {
+      color: var(--blue);
+      font-style: italic;
+    }
+
+    .hero__lead-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px 26px;
+      margin: 24px 0;
+      box-shadow: var(--shadow-sm);
+      max-width: 640px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .hero__lead-card p {
+      color: var(--ink-soft);
+      line-height: 1.75;
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .hero__lead-card p:last-child { margin-bottom: 0; }
+
+    .hero__lead-card strong { color: var(--ink); font-weight: 600; }
+
+    .hero__highlight {
+      color: var(--ink);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .hero__cta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 11px 22px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: transform .12s, box-shadow .12s, background .12s;
+      cursor: pointer;
+      border: none;
+      line-height: 1;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn--primary {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(30,58,95,.30);
+    }
+
+    .btn--primary:hover { background: var(--blue-mid); box-shadow: 0 6px 20px rgba(30,58,95,.40); }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--ink);
+      border: 1.5px solid var(--line);
+    }
+
+    .btn--outline:hover { border-color: var(--ink-soft); background: var(--paper2); }
+
+    .btn--gold {
+      background: var(--gold);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(176,138,78,.30);
+    }
+
+    .btn--gold:hover { background: var(--gold-light); }
+
+    /* Stats row */
+    .hero__stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 580px;
+    }
+
+    .stat {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat__n {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--blue);
+      margin-bottom: 3px;
+    }
+
+    .stat__t {
+      font-size: 12px;
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+
+    /* Logo marquee */
+    .logoMarquee {
+      margin-top: 20px;
+      overflow: hidden;
+      position: relative;
+      padding: 12px 0;
+      max-width: 580px;
+    }
+
+    .logoMarquee::before,
+    .logoMarquee::after {
+      content: '';
+      position: absolute;
+      top: 0; width: 60px; height: 100%;
+      z-index: 2; pointer-events: none;
+    }
+
+    .logoMarquee::before { left: 0; background: linear-gradient(90deg, var(--paper), transparent); }
+    .logoMarquee::after  { right: 0; background: linear-gradient(270deg, var(--paper), transparent); }
+
+    .logoMarquee__track {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      width: max-content;
+      animation: marquee 22s linear infinite;
+    }
+
+    .logoMarquee__track img {
+      height: 52px;
+      width: auto;
+      opacity: .5;
+      filter: grayscale(1);
+      transition: opacity .2s, filter .2s, transform .2s;
+    }
+
+    .logoMarquee__track img:hover { opacity: .9; filter: none; transform: translateY(-1px); }
+    .logoMarquee:hover .logoMarquee__track { animation-play-state: paused; }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .logoMarquee__track { animation: none; }
+    }
+
+    /* Hero Right */
+    .hero__right { display: flex; flex-direction: column; gap: 14px; }
+
+    .heroPhoto {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 10px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .heroPhoto img {
+      width: 100%;
+      border-radius: 14px;
+      object-fit: cover;
+      aspect-ratio: 3/4;
+    }
+
+    .heroCard {
+      background: var(--blue);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow-md);
+      color: #fff;
+    }
+
+    .heroCard__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 99px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.20);
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .heroCard__badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 0 3px rgba(74,222,128,.3);
+    }
+
+    .heroCard__title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.55);
+      margin-bottom: 10px;
+    }
+
+    .heroCard__list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .heroCard__list li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      font-size: 14px;
+      color: rgba(255,255,255,.9);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .heroCard__list li::before {
+      content: '→';
+      color: var(--gold-light);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .heroCard__list li:last-child { border-bottom: none; }
+
+    .heroCard__links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .heroCard__links a {
+      flex: 1;
+      text-align: center;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.10);
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,.15);
+      transition: background .15s;
+    }
+
+    .heroCard__links a:hover { background: rgba(255,255,255,.20); }
+
+    /* ===========================
+       SECTIONS
+    =========================== */
+    .section { padding: 80px 0; }
+    .section--alt { background: var(--paper2); }
+    .section--dark { background: var(--blue); color: #fff; }
+
+    .section__header { margin-bottom: 40px; }
+
+    .section__title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 3.5vw, 42px);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .section--dark .section__title { color: #fff; }
+
+    .section__desc {
+      color: var(--ink-soft);
+      max-width: 65ch;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .section--dark .section__desc { color: rgba(255,255,255,.65); }
+    .section--dark .eyebrow { color: var(--gold-light); }
+    .section--dark .eyebrow::before { background: var(--gold-light); }
+
+    /* ===========================
+       PARCOURS / COMPETENCES cards
+    =========================== */
+    .content-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .content-card p {
+      color: var(--ink-soft);
+      line-height: 1.85;
+      font-size: 15px;
+      text-align: justify;
+      margin-bottom: 22px;
+    }
+
+    .content-card p:last-child { margin-bottom: 0; }
+
+    .card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--blue);
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      padding: 9px 16px;
+      border: 1.5px solid var(--blue-soft);
+      border-radius: 8px;
+      background: var(--blue-soft);
+      transition: all .15s;
+    }
+
+    .card__link:hover {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+
+    /* ===========================
+       CERTIFICATIONS
+    =========================== */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .2s, transform .2s;
+    }
+
+    .step:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+
+    .step__badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 48px;
+      height: 48px;
+      padding: 0 12px;
+      border-radius: 12px;
+      background: var(--blue);
+      color: var(--gold-light);
+      font-family: 'DM Serif Display', serif;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: .05em;
+    }
+
+    .step__title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .step__text {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .step__deliverable a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--blue);
+      font-weight: 600;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .step__deliverable a:hover { text-decoration: underline; }
+
+    /* ===========================
+       ÉTUDES DE CAS
+    =========================== */
+    .cases {
+      display: grid;
+      gap: 20px;
+    }
+
+    .case {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .2s, transform .2s;
+    }
+
+    .case:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+    .case__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .case__title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 12px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+      border: 1.5px solid var(--blue-soft);
+      background: var(--blue-soft);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .case__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .case__block {
+      background: var(--paper2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+
+    .case__label {
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .case__text {
+      color: var(--ink-soft);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .case__desc {
+      color: var(--ink-soft);
+      font-size: 14px;
+      line-height: 1.75;
+      text-align: justify;
+      margin-bottom: 18px;
+    }
+
+    .case__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      padding: 9px 16px;
+      border-radius: 8px;
+      background: var(--blue-soft);
+      border: 1.5px solid var(--blue-soft);
+      transition: all .15s;
+    }
+
+    .case__link:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+    /* ===========================
+       EXPERTISE
+    =========================== */
+    .expertise {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .expert {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 26px 22px;
+      transition: background .2s;
+    }
+
+    .expert:hover { background: rgba(255,255,255,.12); }
+
+    .expert__icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(212,170,114,.15);
+      border: 1px solid rgba(212,170,114,.25);
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .expert__title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .expert__text {
+      font-size: 13px;
+      color: rgba(255,255,255,.55);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .expert__list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .expert__list li {
+      font-size: 14px;
+      color: rgba(255,255,255,.80);
+      padding: 6px 0;
+      border-top: 1px solid rgba(255,255,255,.07);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .expert__list li::before {
+      content: '◆';
+      font-size: 7px;
+      color: var(--gold-light);
+      flex-shrink: 0;
+    }
+
+    /* ===========================
+       CONTACT
+    =========================== */
+    .closing {
+      padding: 100px 0;
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+    }
+
+    .closing__inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .closing__title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(30px, 4vw, 50px);
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .closing__desc {
+      color: var(--ink-soft);
+      font-size: 15px;
+      max-width: 56ch;
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .closing__cta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .closing__info-panel {
+      background: var(--blue);
+      border-radius: 20px;
+      padding: 32px 28px;
+      color: #fff;
+      min-width: 260px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .info-row {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+
+    .info-row:first-child { padding-top: 0; }
+    .info-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .info-row__k {
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 4px;
+    }
+
+    .info-row__v {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    .footer {
+      background: var(--ink);
+      padding: 26px 0;
+    }
+
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer p { font-size: 13px; color: rgba(255,255,255,.4); margin: 0; }
+    .footer a { color: rgba(255,255,255,.6); text-decoration: none; }
+    .footer a:hover { color: rgba(255,255,255,.9); }
+
+    /* ===========================
+       DIVIDER
+    =========================== */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line), transparent);
+      margin: 0;
+    }
+
+    /* ===========================
+       FOCUS
+    =========================== */
+    :focus-visible {
+      outline: 3px solid rgba(30,58,95,.4);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 960px) {
+      .hero__grid { grid-template-columns: 1fr; }
+      .hero__right { max-width: 420px; }
+      .hero__stats { grid-template-columns: 1fr 1fr; }
+      .closing__inner { grid-template-columns: 1fr; }
+      .closing__info-panel { min-width: unset; width: 100%; }
+      .steps { grid-template-columns: 1fr; }
+      .expertise { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      .hero { padding: 50px 0 40px; }
+      .section { padding: 60px 0; }
+      .hero__stats { grid-template-columns: 1fr; }
+      .case__grid { grid-template-columns: 1fr; }
+      .case__top { flex-direction: column; }
+      .content-card { padding: 22px 20px; }
+      .nav a:not(.nav__cta) { display: none; }
+    }
+  </style>
 </head>
 <body>
 
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
 <header class="header">
   <div class="container header__inner">
-    <div class="logo">GS</div>
+    <a href="#top" class="logo">
+      <div class="logo__monogram">GS</div>
+      <div>
+        <span class="logo__text">Gérard Sokpetin</span>
+        <span class="logo__sub">Actuariat · Data Science</span>
+      </div>
+    </a>
     <nav class="nav">
       <a href="#parcours">Parcours</a>
       <a href="#competences">Compétences</a>
       <a href="#certification">Certifications</a>
       <a href="#projets">Études</a>
-      <a href="#publications">Publications</a>
-      <a href="#contact">Contact</a>
+      <a href="#publications">Expertise</a>
+      <a href="#contact" class="nav__cta">Contact</a>
     </nav>
   </div>
 </header>
 
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
 <section class="hero" id="top">
   <div class="container hero__grid">
 
-    <!-- Colonne gauche : message -->
+    <!-- Gauche -->
     <div class="hero__left">
-      <p class="eyebrow">ACTUARIAT • DATA SCIENCE • RISQUE</p>
+      <p class="eyebrow">Actuariat · Data Science · Risque</p>
 
-      <h1>Hello,<br>
-          je suis <span class="name-highlight">Gérard Sokpetin</span>.
+      <h1>Hello, je suis<br>
+        <span class="name-highlight">Gérard Sokpetin</span>.
       </h1>
 
-      <div class="heroTextCard">
-  <p>
-    J’interviens sur des <strong>études statistiques</strong> et des
-    <strong>modélisations actuarielles</strong>
-    (lois de mortalité, segmentation du risque, indicateurs réglementaires,Solvabilité 2, IFRS 17),
-    lorsque l’enjeu est de sécuriser la prise de décision à partir de données
-    fiables, correctement analysées et interprétées.
-  </p>
-
-  <p class="heroTextCard__highlight">
-    Mon objectif est de <strong>Fiabiliser les analyses</strong>, <strong>construire des modèles robustes</strong>
-    et <strong>restituer des résultats lisibles, exploitables et utiles à la décision</strong>.
-  </p>
-</div>
+      <div class="hero__lead-card">
+        <p>
+          J'interviens sur des <strong>études statistiques</strong> et des
+          <strong>modélisations actuarielles</strong>
+          (lois de mortalité, segmentation du risque, indicateurs réglementaires, Solvabilité II, IFRS 17),
+          lorsque l'enjeu est de sécuriser la prise de décision à partir de données
+          fiables, correctement analysées et interprétées.
+        </p>
+        <p class="hero__highlight">
+          Mon objectif : <strong>fiabiliser les analyses</strong>, <strong>construire des modèles robustes</strong>
+          et <strong>restituer des résultats lisibles, exploitables et utiles à la décision</strong>.
+        </p>
+      </div>
 
       <div class="hero__cta">
-        <a href="#projets" class="btn">Voir le portfolio</a>
+        <a href="#projets" class="btn btn--primary">Voir le portfolio →</a>
         <a href="#" class="btn btn--outline">Télécharger le CV</a>
       </div>
 
@@ -74,107 +962,102 @@
           <div class="stat__t">cadres maîtrisés</div>
         </div>
         <div class="stat">
-          <div class="stat__n">SAS • Python • R</div>
+          <div class="stat__n">SAS · Python · R</div>
           <div class="stat__t">production & industrialisation</div>
         </div>
       </div>
 
-<div class="logoMarquee" aria-label="Entreprises">
-  <div class="logoMarquee__track">
-    <!-- Série 1 -->
-       <img src="CAA.png" alt="CAA">
-       <img src="INStaD.jpg" alt="INStaD">
-       <img src="SUNU.jpg" alt="SUNU">
-
-   <!-- Série 2 (duplicquée pour boucle infinie) -->
-       <img src="CAA.png" alt="CAA">
-       <img src="INStaD.jpg" alt="INStaD">
-       <img src="SUNU.jpg" alt="SUNU">
-  </div>
-</div>
-
+      <div class="logoMarquee" aria-label="Entreprises partenaires">
+        <div class="logoMarquee__track">
+          <img src="CAA.png" alt="CAA">
+          <img src="INStaD.jpg" alt="INStaD">
+          <img src="SUNU.jpg" alt="SUNU">
+          <img src="CAA.png" alt="CAA">
+          <img src="INStaD.jpg" alt="INStaD">
+          <img src="SUNU.jpg" alt="SUNU">
+        </div>
+      </div>
     </div>
 
-    <!-- Colonne droite : carte focus -->
+    <!-- Droite -->
     <aside class="hero__right">
+      <div class="heroPhoto">
+        <img src="gerard.jpg" alt="Gérard Sokpetin">
+      </div>
 
-  <!-- Photo -->
-  <div class="heroPhoto">
-    <img src="gerard.jpg" alt="Gérard Sokpetin">
-  </div>
-
-  <!-- Carte info -->
-  <div class="heroCard">
-    <p class="heroCard__badge">Disponible • CDI / CDD</p>
-
-    <h3 class="heroCard__title">Postes recherchés</h3>
-    <ul class="heroCard__list">
-      <li>Chargé d’études actuarielles & statistiques</li>
-      <li>Data Scientist / Data Analyst</li>
-      <li>Analyste statisticien — Crédit Scoring</li>
-      <li>Actuaire</li>
-    </ul>
-
-    <div class="heroCard__links">
-      <a href="#">LinkedIn</a>
-      <a href="#">GitHub</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-
-</aside>
+      <div class="heroCard">
+        <p class="heroCard__badge">Disponible · CDI / CDD</p>
+        <h3 class="heroCard__title">Postes recherchés</h3>
+        <ul class="heroCard__list">
+          <li>Chargé d'études actuarielles & statistiques</li>
+          <li>Data Scientist / Data Analyst</li>
+          <li>Analyste statisticien — Crédit Scoring</li>
+          <li>Actuaire</li>
+        </ul>
+        <div class="heroCard__links">
+          <a href="#">LinkedIn</a>
+          <a href="#">GitHub</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </aside>
 
   </div>
-
 </section>
 
+<div class="divider"></div>
+
+<!-- ═══════════════════════ PARCOURS ═══════════════════════ -->
 <section id="parcours" class="section">
   <div class="container">
-    <p class="eyebrow">QUEL EST MON PARCOURS ?</p>
-    <h2 class="section__title">Un parcours construit autour des mathématiques, de la statistique et de la finance</h2>
-
-    <article class="case parcours-case">
-      <div class="parcours-box">
-        <p class="parcours-intro">
-          De la classe préparatoire, option mathématiques, à un Master 2 en Statistique et Probabilité au sein du centre d’excellence de la Banque mondiale IMSP, puis à un Master 2 Monnaie, Banque, Finance, Assurance, parcours Risque, Assurance, Décision à l’Université Sorbonne, j’ai construit un parcours solide à l’intersection de la data, de la finance et de l’actuariat. Ce socle académique, enrichi par des expériences concrètes et des certifications techniques, me permet aujourd’hui de produire des analyses rigoureuses, de développer des modèles robustes et de restituer des résultats utiles à la décision.
-        </p>
-
-        <a class="case__link" href="detail_parcours.html">Voir le détail →</a>
-      </div>
-    </article>
-  </div>
-</section>
-  
-<section id="competences" class="section">
-  <div class="container">
-    <p class="eyebrow">QUELLES COMPETENCES ?</p>
-    <h2 class="section__title">Des compétences construites au croisement des statistiques, de la finance, de l’actuariat et de la gestion des risques</h2>
-
-    <article class="case parcours-case">
-      <div class="parcours-box">
-        <p class="parcours-intro">
-          Elles s’appuient sur une pratique concrète de l’analyse de données, de la modélisation quantitative, de la gestion du risque et de la restitution décisionnelle. Développées dans des contextes exigeants, ces compétences me permettent de fiabiliser les traitements, de construire des modèles robustes et de produire des résultats lisibles, exploitables et utiles aux équipes métier.
-        </p>
-
-        <a class="case__link" href="detail_competences.html">Voir le détail →</a>
-      </div>
-    </article>
+    <div class="section__header">
+      <p class="eyebrow">Mon Parcours</p>
+      <h2 class="section__title">Un parcours construit autour des mathématiques,<br>de la statistique et de la finance</h2>
+    </div>
+    <div class="content-card">
+      <p>
+        De la classe préparatoire, option mathématiques, à un Master 2 en Statistique et Probabilité au sein du centre d'excellence de la Banque mondiale IMSP, puis à un Master 2 Monnaie, Banque, Finance, Assurance, parcours Risque, Assurance, Décision à l'Université Sorbonne, j'ai construit un parcours solide à l'intersection de la data, de la finance et de l'actuariat. Ce socle académique, enrichi par des expériences concrètes et des certifications techniques, me permet aujourd'hui de produire des analyses rigoureuses, de développer des modèles robustes et de restituer des résultats utiles à la décision.
+      </p>
+      <a class="card__link" href="detail_parcours.html">Voir le détail complet →</a>
+    </div>
   </div>
 </section>
 
-<section id="certification" class="section section--dark">
+<div class="divider"></div>
+
+<!-- ═══════════════════════ COMPÉTENCES ═══════════════════════ -->
+<section id="competences" class="section section--alt">
   <div class="container">
-    <p class="eyebrow">MES CERTIFICATIONS</p>
-    <h2 class="section__title">Trois certifications reconnues</h2>
+    <div class="section__header">
+      <p class="eyebrow">Mes Compétences</p>
+      <h2 class="section__title">Des compétences au croisement des statistiques,<br>de la finance et de l'actuariat</h2>
+    </div>
+    <div class="content-card">
+      <p>
+        Elles s'appuient sur une pratique concrète de l'analyse de données, de la modélisation quantitative, de la gestion du risque et de la restitution décisionnelle. Développées dans des contextes exigeants, ces compétences me permettent de fiabiliser les traitements, de construire des modèles robustes et de produire des résultats lisibles, exploitables et utiles aux équipes métier.
+      </p>
+      <a class="card__link" href="detail_competences.html">Voir le détail complet →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════ CERTIFICATIONS ═══════════════════════ -->
+<section id="certification" class="section">
+  <div class="container">
+    <div class="section__header">
+      <p class="eyebrow">Certifications</p>
+      <h2 class="section__title">Trois certifications reconnues</h2>
+      <p class="section__desc">Des accréditations qui valident à la fois les compétences réglementaires, analytiques et opérationnelles.</p>
+    </div>
 
     <div class="steps">
       <div class="step">
-        <div class="step__n">AMF</div>
+        <div class="step__badge">AMF</div>
         <h3 class="step__title">Certification AMF</h3>
         <p class="step__text">
-          Délivrée dans le cadre de l’Autorité des Marchés Financiers, cette certification atteste de ma maîtrise
-          des fondamentaux réglementaires, des instruments financiers, des marchés et des exigences de conformité
-          propres à l’environnement bancaire et financier.
+          Délivrée dans le cadre de l'Autorité des Marchés Financiers, cette certification atteste de ma maîtrise des fondamentaux réglementaires, des instruments financiers, des marchés et des exigences de conformité propres à l'environnement bancaire et financier.
         </p>
         <p class="step__deliverable">
           <a href="LIEN_VERS_CERTIFICATION_AMF" target="_blank" rel="noopener noreferrer">Voir la certification →</a>
@@ -182,11 +1065,10 @@
       </div>
 
       <div class="step">
-        <div class="step__n">DSA</div>
+        <div class="step__badge">DSA</div>
         <h3 class="step__title">Data Scientist Associate — DataCamp</h3>
         <p class="step__text">
-          Délivrée par DataCamp, cette certification valide mes compétences en analyse de données, modélisation statistique,
-          machine learning et interprétation des résultats, avec une approche concrète orientée résolution de problèmes.
+          Délivrée par DataCamp, cette certification valide mes compétences en analyse de données, modélisation statistique, machine learning et interprétation des résultats, avec une approche concrète orientée résolution de problèmes.
         </p>
         <p class="step__deliverable">
           <a href="LIEN_VERS_CERTIFICATION_DATACAMP" target="_blank" rel="noopener noreferrer">Voir la certification →</a>
@@ -194,11 +1076,10 @@
       </div>
 
       <div class="step">
-        <div class="step__n">DKU</div>
+        <div class="step__badge">DKU</div>
         <h3 class="step__title">Certification Dataiku</h3>
         <p class="step__text">
-          Délivrée par Dataiku, cette certification atteste de ma capacité à préparer les données, construire des workflows,
-          explorer des jeux de données et développer des projets analytiques dans un environnement collaboratif et opérationnel.
+          Délivrée par Dataiku, cette certification atteste de ma capacité à préparer les données, construire des workflows, explorer des jeux de données et développer des projets analytiques dans un environnement collaboratif.
         </p>
         <p class="step__deliverable">
           <a href="LIEN_VERS_CERTIFICATION_DATAIKU" target="_blank" rel="noopener noreferrer">Voir la certification →</a>
@@ -208,13 +1089,16 @@
   </div>
 </section>
 
-<section id="projets" class="section">
+<div class="divider"></div>
+
+<!-- ═══════════════════════ ÉTUDES DE CAS ═══════════════════════ -->
+<section id="projets" class="section section--alt">
   <div class="container">
-    <p class="eyebrow">ÉTUDES DE CAS</p>
-    <h2 class="section__title">Des preuves concrètes, orientées impact</h2>
-    <p class="section__desc">
-      Chaque étude de cas présente un contexte métier, une approche et un résultat exploitable pour la décision.
-    </p>
+    <div class="section__header">
+      <p class="eyebrow">Études de Cas</p>
+      <h2 class="section__title">Des preuves concrètes, orientées impact</h2>
+      <p class="section__desc">Chaque étude présente un contexte métier, une approche structurée et un résultat exploitable pour la décision.</p>
+    </div>
 
     <div class="cases">
       <!-- Case 1 -->
@@ -222,83 +1106,75 @@
         <div class="case__top">
           <h3 class="case__title">Modélisation pour une meilleure tarification immobilière</h3>
         </div>
-
-        <div class="parcours-box">
-        <p class="parcours-intro">
-        Cette étude de cas montre comment la data science et le machine learning peuvent devenir de véritables leviers de performance pour une agence immobilière. En exploitant les données du marché pour identifier les facteurs qui influencent le prix des appartements et construire un modèle prédictif, ce travail aide à définir des prix plus cohérents, à fiabiliser les décisions de tarification et à mieux accompagner les clients. Au-delà de l’analyse, l’enjeu est de transformer la donnée en un outil d’aide à la décision capable d’améliorer le positionnement des biens et de soutenir la performance commerciale de l’agence.
+        <p class="case__desc">
+          Cette étude de cas montre comment la data science et le machine learning peuvent devenir de véritables leviers de performance pour une agence immobilière. En exploitant les données du marché pour identifier les facteurs influençant le prix des appartements et construire un modèle prédictif, ce travail aide à définir des prix plus cohérents, à fiabiliser les décisions de tarification et à mieux accompagner les clients.
         </p>
-
         <a class="case__link" href="AgentImmo.html">Voir le détail →</a>
-        </div>
       </article>
 
       <!-- Case 2 -->
       <article class="case">
         <div class="case__top">
-          <h3 class="case__title">Analyse actuarielle d’un portefeuille épargne-retraite</h3>
-          <span class="tag">KPI • Qualité des données</span>
+          <h3 class="case__title">Analyse actuarielle d'un portefeuille épargne-retraite</h3>
+          <span class="tag">KPI · Qualité des données</span>
         </div>
-
         <div class="case__grid">
           <div class="case__block">
             <div class="case__label">Problème</div>
             <div class="case__text">Produire des indicateurs fiables et lisibles pour le pilotage portefeuille.</div>
           </div>
-
           <div class="case__block">
             <div class="case__label">Approche</div>
-            <div class="case__text">Consolidation SAS/Excel, contrôle cohérence, KPI & segmentation simple.</div>
+            <div class="case__text">Consolidation SAS/Excel, contrôle cohérence, KPI & segmentation.</div>
           </div>
-
           <div class="case__block">
             <div class="case__label">Impact</div>
-            <div class="case__text">Tableaux de bord exploitables, meilleure lecture portefeuille et points d’attention qualité.</div>
+            <div class="case__text">Tableaux de bord exploitables, meilleure lecture portefeuille et points qualité.</div>
           </div>
         </div>
-
-        <a class="case__link" href="epargne-retraite.html">Voir l’étude →</a>
+        <a class="case__link" href="epargne-retraite.html">Voir l'étude →</a>
       </article>
 
       <!-- Case 3 -->
       <article class="case">
         <div class="case__top">
           <h3 class="case__title">Modélisation prédictive du risque</h3>
-          <span class="tag">GLM • ML • Validation</span>
+          <span class="tag">GLM · ML · Validation</span>
         </div>
-
         <div class="case__grid">
           <div class="case__block">
             <div class="case__label">Problème</div>
-            <div class="case__text">Expliquer/prédire un risque avec robustesse et interprétabilité.</div>
+            <div class="case__text">Expliquer et prédire un risque avec robustesse et interprétabilité.</div>
           </div>
-
           <div class="case__block">
             <div class="case__label">Approche</div>
             <div class="case__text">Modélisation GLM + ML, backtesting, suivi AUC/ROC, analyse des facteurs.</div>
           </div>
-
           <div class="case__block">
             <div class="case__label">Impact</div>
             <div class="case__text">Modèle pilotable, suivi de performance, restitution claire pour décision.</div>
           </div>
         </div>
-
         <a class="case__link" href="#">À compléter →</a>
       </article>
     </div>
   </div>
 </section>
 
+<div class="divider"></div>
+
+<!-- ═══════════════════════ EXPERTISE ═══════════════════════ -->
 <section id="publications" class="section section--dark">
   <div class="container">
-    <p class="eyebrow">EXPERTISE</p>
-    <h2 class="section__title">Une expertise structurée, orientée résultats</h2>
-    <p class="section__desc">
-      Je combine actuariat, data et restitution pour produire des analyses robustes, compréhensibles et actionnables.
-    </p>
+    <div class="section__header">
+      <p class="eyebrow">Expertise</p>
+      <h2 class="section__title">Une expertise structurée,<br>orientée résultats</h2>
+      <p class="section__desc">Je combine actuariat, data et restitution pour produire des analyses robustes, compréhensibles et actionnables.</p>
+    </div>
 
     <div class="expertise">
       <div class="expert">
+        <div class="expert__icon">📐</div>
         <h3 class="expert__title">Actuariat & réglementation</h3>
         <p class="expert__text">Cadre et interprétation des résultats dans un contexte assurance.</p>
         <ul class="expert__list">
@@ -309,6 +1185,7 @@
       </div>
 
       <div class="expert">
+        <div class="expert__icon">📊</div>
         <h3 class="expert__title">Modélisation & data</h3>
         <p class="expert__text">Des modèles adaptés au contexte, avec validation et interprétation.</p>
         <ul class="expert__list">
@@ -319,6 +1196,7 @@
       </div>
 
       <div class="expert">
+        <div class="expert__icon">⚙️</div>
         <h3 class="expert__title">Production & restitution</h3>
         <p class="expert__text">Industrialisation et communication orientées décision.</p>
         <ul class="expert__list">
@@ -331,61 +1209,51 @@
   </div>
 </section>
 
+<!-- ═══════════════════════ CONTACT ═══════════════════════ -->
 <section id="contact" class="closing">
   <div class="container closing__inner">
     <div class="closing__text">
-      <p class="eyebrow">CONTACT</p>
-      <h2 class="closing__title">Construisons quelque chose d’exceptionnel.</h2>
+      <p class="eyebrow">Contact</p>
+      <h2 class="closing__title">Construisons quelque chose d'exceptionnel.</h2>
       <p class="closing__desc">
-        Si vous cherchez un profil actuariat & data orienté décision (S2 / IFRS 17), je suis disponible
-        pour échanger sur votre besoin et proposer une approche claire.
+        Si vous cherchez un profil actuariat & data orienté décision (S2 / IFRS 17), je suis disponible pour échanger sur votre besoin et proposer une approche claire.
       </p>
+      <div class="closing__cta">
+        <a class="btn btn--primary" href="mailto:gerard.sokpetin@imsp-uac.org">✉ Me contacter</a>
+        <a class="btn btn--outline" href="#">LinkedIn</a>
+      </div>
     </div>
 
-    <div class="closing__cta">
-      <a class="btn" href="mailto:gerard.sokpetin@imsp-uac.org">Me contacter</a>
-      <a class="btn btn--outline" href="#">LinkedIn</a>
-    </div>
-
-    <div class="closing__info">
-      <div class="info">
-        <div class="info__k">Email</div>
-        <div class="info__v">gerard.sokpetin@imsp-uac.org</div>
+    <div class="closing__info-panel">
+      <div class="info-row">
+        <div class="info-row__k">Email</div>
+        <div class="info-row__v">gerard.sokpetin@imsp-uac.org</div>
       </div>
-      <div class="info">
-        <div class="info__k">Localisation</div>
-        <div class="info__v">France • Paris</div>
+      <div class="info-row">
+        <div class="info-row__k">Localisation</div>
+        <div class="info-row__v">France · Paris</div>
       </div>
-      <div class="info">
-        <div class="info__k">Disponibilité</div>
-        <div class="info__v">CDI / Missions</div>
+      <div class="info-row">
+        <div class="info-row__k">Disponibilité</div>
+        <div class="info-row__v">CDI / Missions</div>
+      </div>
+      <div class="info-row" style="margin-top: 16px;">
+        <a href="mailto:gerard.sokpetin@imsp-uac.org" class="btn btn--gold" style="width: 100%; justify-content: center;">Envoyer un email</a>
       </div>
     </div>
   </div>
 </section>
 
-<footer class="footer footer--pro">
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="footer">
   <div class="container footer__inner">
-    <p>© 2025 Gérard Sokpetin</p>
-    <p class="footer__muted">Actuariat & Data — Portfolio</p>
+    <p>© 2025 Gérard Sokpetin — Actuariat & Data Science</p>
+    <p><a href="#top">Retour en haut ↑</a></p>
   </div>
 </footer>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
