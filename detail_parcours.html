@@ -3,307 +3,1042 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mon parcours — Gérard Sokpetin</title>
-  <link rel="stylesheet" href="../styles.css" />
+  <title>Mon Parcours — Gérard Sokpetin</title>
+  <meta name="description" content="Parcours professionnel et académique de Gérard Sokpetin — Actuariat, Data Science, Solvabilité II, IFRS 17" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SG39TQLYT6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-SG39TQLYT6');
-    </script>
+  <!-- Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SG39TQLYT6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SG39TQLYT6');
+  </script>
 
   <style>
-    .timeline-page-title{
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.15;
-      margin: 0 0 40px 0;
-      color: #0f172a;
+    /* ═══════════════════════════════
+       TOKENS
+    ═══════════════════════════════ */
+    :root {
+      --ink:         #0d1520;
+      --ink-soft:    #3d4f63;
+      --ink-muted:   #7a8fa6;
+      --paper:       #faf8f5;
+      --paper2:      #f2efe9;
+      --paper3:      #e8e3da;
+      --gold:        #b08a4e;
+      --gold-light:  #d4aa72;
+      --gold-soft:   #f5ead8;
+      --blue:        #1e3a5f;
+      --blue-mid:    #2d5485;
+      --blue-light:  #4a7fc1;
+      --blue-soft:   #dce8f5;
+      --rose:        #8b2a3d;
+      --rose-soft:   #f5dde2;
+      --line:        #ddd8cf;
+      --shadow-sm:   0 2px 8px rgba(13,21,32,.07);
+      --shadow-md:   0 8px 28px rgba(13,21,32,.10);
+      --shadow-lg:   0 20px 60px rgba(13,21,32,.13);
+      --radius:      16px;
+      --radius-sm:   10px;
     }
 
-    .timeline-section{
-      margin-top: 56px;
+    /* ═══════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .timeline-section:first-of-type{
-      margin-top: 0;
+    a { text-underline-offset: 5px; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+      width: 92%;
+      max-width: 1120px;
+      margin: 0 auto;
     }
 
-    .timeline-heading{
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 24px;
-    }
-
-    .timeline{
-      position: relative;
-      padding-left: 34px;
-    }
-
-    .timeline::before{
-      content: "";
-      position: absolute;
+    /* ═══════════════════════════════
+       HEADER
+    ═══════════════════════════════ */
+    .header {
+      position: sticky;
       top: 0;
-      bottom: 0;
-      left: 10px;
-      width: 2px;
-      background: linear-gradient(180deg, #c7d2fe 0%, #e2e8f0 100%);
+      z-index: 100;
+      background: rgba(250,248,245,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
     }
 
-    .timeline-item{
-      position: relative;
-      margin-bottom: 28px;
+    .header__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
     }
 
-    .timeline-item:last-child{
-      margin-bottom: 0;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
     }
 
-    .timeline-dot{
-      position: absolute;
-      left: -31px;
-      top: 26px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: #4f7df3;
-      border: 4px solid #eef4ff;
-      box-shadow: 0 0 0 1px rgba(79,125,243,.18);
+    .logo__monogram {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--blue);
+      color: var(--gold-light);
+      font-family: 'DM Serif Display', serif;
+      font-size: 15px;
+      display: grid;
+      place-items: center;
     }
 
-    .timeline-card{
-      background: #ffffff;
-      border: 1px solid #e7ecf3;
-      border-radius: 18px;
-      padding: 24px 26px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    .logo__text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .logo__sub {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--ink-muted);
+      display: block;
+      margin-top: 1px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav a {
+      color: var(--ink-soft);
+      padding: 7px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color .15s, background .15s;
+    }
+
+    .nav a:hover { color: var(--ink); background: var(--paper2); }
+
+    .nav .nav__cta {
+      background: var(--blue);
+      color: #fff;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .nav .nav__cta:hover { background: var(--blue-mid); color: #fff; }
+
+    /* ═══════════════════════════════
+       HERO BANNER
+    ═══════════════════════════════ */
+    .page-hero {
+      background: var(--blue);
+      padding: 64px 0 56px;
       position: relative;
       overflow: hidden;
     }
 
-    .timeline-card::before{
-      content: "";
+    .page-hero::before {
+      content: '';
       position: absolute;
-      top: 18px;
-      left: 0;
-      width: 5px;
-      height: calc(100% - 36px);
-      border-radius: 0 8px 8px 0;
-      background: #4f7df3;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 90% at 85% 50%, rgba(176,138,78,.13), transparent),
+        radial-gradient(ellipse 35% 50% at 5% 80%,  rgba(255,255,255,.04), transparent);
+      pointer-events: none;
     }
 
-    .timeline-card--edu::before{
-      background: #e85d75;
+    /* Motif de points décoratif */
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 320px; height: 100%;
+      background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none;
     }
 
-    .timeline-role{
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin: 0 0 6px 0;
-      padding-left: 10px;
-    }
+    .page-hero__inner { position: relative; z-index: 1; }
 
-    .timeline-org{
-      font-size: 0.98rem;
-      font-weight: 600;
-      color: #4f7df3;
-      margin: 0 0 6px 0;
-      padding-left: 10px;
-    }
-
-    .timeline-card--edu .timeline-org{
-      color: #d9485f;
-    }
-
-    .timeline-meta{
-      font-size: 0.95rem;
-      color: #64748b;
-      margin-bottom: 14px;
-      padding-left: 10px;
-    }
-
-    .timeline-list{
-      margin: 0;
-      padding-left: 28px;
-      color: #334155;
-      line-height: 1.75;
-    }
-
-    .timeline-list li{
-      margin-bottom: 8px;
-    }
-
-    .timeline-list li:last-child{
-      margin-bottom: 0;
-    }
-
-    .back-link{
+    .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      text-decoration: none;
-      color: #4f7df3;
-      font-weight: 600;
-      margin-top: 36px;
+      font-size: 11px;
+      letter-spacing: .2em;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 14px;
     }
 
-    @media (max-width: 768px){
-      .timeline{
-        padding-left: 24px;
+    .eyebrow::before {
+      content: '';
+      width: 24px; height: 2px;
+      background: var(--gold-light);
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    .page-hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 5vw, 58px);
+      color: #fff;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .page-hero h1 em { color: var(--gold-light); font-style: italic; }
+
+    .page-hero__desc {
+      max-width: 58ch;
+      font-size: 15px;
+      color: rgba(255,255,255,.62);
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+
+    /* ─── Métriques clés dans le hero ─── */
+    .hero-metrics {
+      display: flex;
+      gap: 0;
+      flex-wrap: wrap;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      overflow: hidden;
+      max-width: 680px;
+    }
+
+    .metric {
+      flex: 1;
+      min-width: 140px;
+      padding: 18px 22px;
+      border-right: 1px solid rgba(255,255,255,.10);
+    }
+
+    .metric:last-child { border-right: none; }
+
+    .metric__n {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .metric__t {
+      font-size: 12px;
+      color: rgba(255,255,255,.50);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* ═══════════════════════════════
+       BREADCRUMB
+    ═══════════════════════════════ */
+    .breadcrumb {
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper2);
+    }
+
+    .breadcrumb__inner {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+
+    .breadcrumb a {
+      color: var(--ink-muted);
+      text-decoration: none;
+      transition: color .15s;
+    }
+
+    .breadcrumb a:hover { color: var(--blue); }
+    .breadcrumb__sep { color: var(--line); }
+    .breadcrumb__current { color: var(--ink-soft); font-weight: 500; }
+
+    /* ═══════════════════════════════
+       PAGE LAYOUT
+    ═══════════════════════════════ */
+    .page-body { padding: 64px 0 96px; }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* ═══════════════════════════════
+       STICKY TOC
+    ═══════════════════════════════ */
+    .toc {
+      position: sticky;
+      top: 84px;
+    }
+
+    .toc__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .toc__list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .toc__list a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      transition: color .15s, background .15s;
+    }
+
+    .toc__list a:hover { color: var(--blue); background: var(--blue-soft); }
+
+    .toc__dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .toc__back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 12px;
+      border-radius: 8px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 20px;
+      border: 1.5px solid rgba(30,58,95,.15);
+      transition: all .15s;
+    }
+
+    .toc__back:hover { background: var(--blue); color: #fff; }
+
+    /* ═══════════════════════════════
+       SECTION HEADING
+    ═══════════════════════════════ */
+    .section-block {
+      margin-bottom: 72px;
+      scroll-margin-top: 100px;
+    }
+
+    .section-block:last-child { margin-bottom: 0; }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 36px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-heading__icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .section-heading__text { flex: 1; }
+
+    .section-heading h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(22px, 2.8vw, 30px);
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 2px;
+    }
+
+    .section-heading__sub {
+      font-size: 13px;
+      color: var(--ink-muted);
+      font-weight: 400;
+    }
+
+    .section-heading__count {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      color: var(--line);
+      font-weight: 400;
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════
+       TIMELINE
+    ═══════════════════════════════ */
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+
+    /* Ligne verticale */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      bottom: 12px;
+      left: 13px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--blue) 0%, var(--line) 100%);
+      border-radius: 2px;
+    }
+
+    .timeline--edu::before {
+      background: linear-gradient(180deg, var(--rose) 0%, var(--line) 100%);
+    }
+
+    /* Item */
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    /* Point */
+    .timeline-dot {
+      position: absolute;
+      left: -40px;
+      top: 22px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 2px solid var(--blue);
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      z-index: 1;
+    }
+
+    .timeline--edu .timeline-dot {
+      border-color: var(--rose);
+    }
+
+    /* Carte */
+    .timeline-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 0;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: box-shadow .2s, transform .2s;
+    }
+
+    .timeline-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    /* Barre de couleur en haut */
+    .timeline-card__bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--blue-light));
+    }
+
+    .timeline--edu .timeline-card__bar {
+      background: linear-gradient(90deg, var(--rose), #d4607a);
+    }
+
+    .timeline-card__body {
+      padding: 22px 26px 24px;
+    }
+
+    /* En-tête de carte */
+    .timeline-card__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .timeline-card__left { flex: 1; min-width: 0; }
+
+    .timeline-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
+    }
+
+    .timeline-org {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 0;
+    }
+
+    .timeline--edu .timeline-org { color: var(--rose); }
+
+    /* Badge date */
+    .timeline-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .timeline-badge--pro {
+      background: var(--blue-soft);
+      color: var(--blue);
+      border: 1.5px solid rgba(30,58,95,.15);
+    }
+
+    .timeline-badge--edu {
+      background: var(--rose-soft);
+      color: var(--rose);
+      border: 1.5px solid rgba(139,42,61,.15);
+    }
+
+    .timeline-meta {
+      font-size: 12px;
+      color: var(--ink-muted);
+      font-weight: 500;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .timeline-meta::before {
+      content: '📍';
+      font-size: 11px;
+    }
+
+    /* Séparateur */
+    .timeline-card__divider {
+      height: 1px;
+      background: var(--line);
+      margin: 0 0 16px;
+    }
+
+    /* Liste de missions */
+    .timeline-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .timeline-list li {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .timeline-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--blue-light);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .timeline--edu .timeline-list li::before { color: var(--rose); }
+
+    /* Highlights inline — ne doivent pas casser le flux */
+    .hl       { font-weight: 700; color: var(--ink); }
+    .hl--blue { font-weight: 700; color: var(--blue-mid); }
+    .hl--gold { font-weight: 700; color: var(--gold); }
+
+    /* Tags de compétences */
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--paper2);
+      color: var(--ink-soft);
+      border: 1px solid var(--line);
+    }
+
+    .timeline-tag--blue {
+      background: var(--blue-soft);
+      color: var(--blue);
+      border-color: rgba(30,58,95,.15);
+    }
+
+    .timeline-tag--gold {
+      background: var(--gold-soft);
+      color: var(--gold);
+      border-color: rgba(176,138,78,.2);
+    }
+
+    /* Tags de compétences */
+    ═══════════════════════════════ */
+    .footer {
+      background: var(--ink);
+      padding: 26px 0;
+    }
+
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer p { font-size: 13px; color: rgba(255,255,255,.4); margin: 0; }
+    .footer a { color: rgba(255,255,255,.6); text-decoration: none; }
+    .footer a:hover { color: rgba(255,255,255,.9); }
+
+    /* ═══════════════════════════════
+       FOCUS
+    ═══════════════════════════════ */
+    :focus-visible {
+      outline: 3px solid rgba(30,58,95,.4);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    /* ═══════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════ */
+    @media (max-width: 960px) {
+      .page-layout { grid-template-columns: 1fr; }
+
+      .toc {
+        position: static;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
       }
 
-      .timeline::before{
-        left: 7px;
+      .toc__label { display: none; }
+
+      .toc__list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
       }
 
-      .timeline-dot{
-        left: -22px;
-        width: 14px;
-        height: 14px;
+      .toc__list a {
+        padding: 6px 12px;
+        background: var(--paper2);
+        border: 1px solid var(--line);
+        border-radius: 99px;
+        font-size: 12px;
       }
 
-      .timeline-card{
-        padding: 20px 18px;
-      }
+      .toc__back { margin-top: 0; }
+
+      .hero-metrics { max-width: 100%; }
+    }
+
+    @media (max-width: 640px) {
+      .page-body { padding: 40px 0 64px; }
+      .timeline { padding-left: 28px; }
+      .timeline::before { left: 8px; }
+      .timeline-dot { left: -28px; width: 22px; height: 22px; }
+      .timeline-card__body { padding: 18px 18px 20px; }
+      .timeline-card__header { flex-direction: column; gap: 8px; }
+      .hero-metrics { flex-direction: column; }
+      .metric { border-right: none; border-bottom: 1px solid rgba(255,255,255,.10); }
+      .metric:last-child { border-bottom: none; }
     }
   </style>
 </head>
 <body>
 
+<!-- ════════════ HEADER ════════════ -->
 <header class="header">
   <div class="container header__inner">
-    <div class="logo">GS</div>
+    <a href="index.html" class="logo">
+      <div class="logo__monogram">GS</div>
+      <div>
+        <span class="logo__text">Gérard Sokpetin</span>
+        <span class="logo__sub">Actuariat · Data Science</span>
+      </div>
+    </a>
     <nav class="nav">
-      <a href="../index.html#parcours">← Retour</a>
-      <a href="../index.html#contact">Contact</a>
+      <a href="index.html#parcours">← Retour au portfolio</a>
+      <a href="index.html#contact" class="nav__cta">Contact</a>
     </nav>
   </div>
 </header>
 
-<section class="section">
-  <div class="container">
-    <h1 class="timeline-page-title">Mon parcours</h1>
+<!-- ════════════ HERO ════════════ -->
+<section class="page-hero">
+  <div class="container page-hero__inner">
+    <p class="eyebrow">Profil</p>
+    <h1>Mon <em>Parcours</em></h1>
+    <p class="page-hero__desc">
+      De la classe préparatoire à la Sorbonne, en passant par un Master d'excellence à l'IMSP — un itinéraire construit à l'intersection des mathématiques, de la statistique et de la finance.
+    </p>
 
-    <div class="timeline-section">
-      <h2 class="timeline-heading">Expériences professionnelles</h2>
-
-      <div class="timeline">
-        <article class="timeline-item">
-          <span class="timeline-dot"></span>
-          <div class="timeline-card">
-            <h3 class="timeline-role">Chargé d’études actuarielles/Data Scientist – Risk Modeling</h3>
-            <p class="timeline-org">Crédit Agricole Assurances Solutions</p>
-            <p class="timeline-meta">Mars 2025 – Septembre 2025 • Paris, France</p>
-            <ul class="timeline-list">
-              <li>Pilotage d’une étude de segmentation du risque de décès sur un portefeuille de plus de 10 Millions de lignes sous SAS </li>
-              <li>Segmentation des comportements d’épargne par CSP et gamme produit via modèles de machine learning</li>
-              <li>Développement de modèles prédictifs (Random Forest, XGBoost) réduisant de +5 % l’erreur d’ajustement  actuariel et améliorant la cohérence des hypothèses de projection.</li>
-              <li>Construction de lois de mortalité prospectives (lissage Whittaker-Henderson, extrapolation Denuit Goderniaux) utilisées pour la projection long terme des engagements (30 ans d’horizon).</li>
-              <li>Evaluation de la qualité prédictive des lois construites à travers la comparaison des rations Observé/Attendu.</li>
-              <li>Réalisation de tests de sensibilité (±5 % mortalité) montrant un impact maîtrisé sur le Best Estimate (-0,20 % à +0,40 %) dans le cadre Solvabilité 2 / IFRS 17.</li>
-              <li>Restitution des résultats à la Direction Actuariat avec recommandations intégrées dans l’analyse de risque.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <span class="timeline-dot"></span>
-          <div class="timeline-card">
-            <h3 class="timeline-role">Chargé d’études actuarielles et statistiques</h3>
-            <p class="timeline-org">SUNU Assurance</p>
-            <p class="timeline-meta">Mars 2022 – Avril 2023 • Cotonou, Bénin</p>
-            <ul class="timeline-list">
-              <li>Analyse actuarielle et financière d’un portefeuille d’environ 10 000 contrats, avec identification de segments à sur-sinistralité.</li>
-              <li>Réalisation d’études tarifaires sur la fréquence, le coût moyen et le ratio S/P ayant conduit à des ajustements de primes.</li>
-              <li>Suivi mensuel des indicateurs techniques et formulation de recommandations sur les dérives observées.</li>
-              <li>Automatisation des reportings sous SAS et Python, avec réduction significative du temps de production.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <span class="timeline-dot"></span>
-          <div class="timeline-card">
-            <h3 class="timeline-role">Chef de projet statistique (stage)</h3>
-            <p class="timeline-org">Institut National de la Statistique et de la Démographie</p>
-            <p class="timeline-meta">Août 2021 – Janvier 2022 • Cotonou, Bénin</p>
-            <ul class="timeline-list">
-              <li>Formation de près de 700 agents enquêteurs aux procédures et outils de collecte de données.</li>
-              <li>Conception et automatisation d’outils de collecte et de traitement de données pour des enquêtes statistiques.</li>
-              <li>Participation à la rédaction de documents techniques et méthodologiques liés aux dispositifs de collecte et de traitement.</li>
-              <li>Supervision des opérations de terrain afin de garantir la qualité et la conformité des données collectées.</li>
-              <li>Contribution à la saisie et au traitement des déclarations fiscales des entreprises.</li>
-              <li>Réalisation d’une analyse sectorielle de la croissance économique entre 2015 et 2020, utilisée comme support d’interprétation macroéconomique.</li>
-              <li>Production de résultats quantitatifs contribuant à une lecture structurée des dynamiques sectorielles.</li>
-            </ul>
-          </div>
-        </article>
+    <div class="hero-metrics">
+      <div class="metric">
+        <div class="metric__n">10M+</div>
+        <div class="metric__t">lignes de données traitées</div>
+      </div>
+      <div class="metric">
+        <div class="metric__n">3+</div>
+        <div class="metric__t">années d'expérience</div>
+      </div>
+      <div class="metric">
+        <div class="metric__n">S2 · IFRS 17</div>
+        <div class="metric__t">cadres réglementaires maîtrisés</div>
+      </div>
+      <div class="metric">
+        <div class="metric__n">2 pays</div>
+        <div class="metric__t">France · Bénin</div>
       </div>
     </div>
-
-    <div class="timeline-section">
-      <h2 class="timeline-heading">Formation</h2>
-
-      <div class="timeline">
-        <article class="timeline-item">
-          <span class="timeline-dot"></span>
-          <div class="timeline-card timeline-card--edu">
-            <h3 class="timeline-role">Master 2 Banque, Finance, Assurance — Ingénierie de l’Assurance</h3>
-            <p class="timeline-org">Université Sorbonne</p>
-            <p class="timeline-meta">2023 – 2025 • Paris, France</p>
-            <ul class="timeline-list">
-              <li>Formation orientée actuariat, assurance, gestion des risques et modélisation financière.</li>
-              <li>Approfondissement des enjeux techniques liés à Solvabilité II, IFRS 17 et à l’analyse actuarielle.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <span class="timeline-dot"></span>
-          <div class="timeline-card timeline-card--edu">
-            <h3 class="timeline-role">Master 2 Statistiques et Probabilités Appliquées</h3>
-            <p class="timeline-org">Institut de Mathématiques et de Sciences Physiques (IMSP)</p>
-            <p class="timeline-meta">2019 – 2021 • Dangbo, Bénin</p>
-            <ul class="timeline-list">
-              <li>Formation approfondie en probabilités, statistique appliquée, modélisation et analyse quantitative.</li>
-              <li>Consolidation des bases méthodologiques nécessaires à l’analyse des données et à la modélisation du risque.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <span class="timeline-dot"></span>
-          <div class="timeline-card timeline-card--edu">
-            <h3 class="timeline-role">Classes préparatoires — Licence Mathématiques</h3>
-            <p class="timeline-org">Institut de Mathématiques et de Sciences Physiques (IMSP)</p>
-            <p class="timeline-meta">2015 – 2019 • Dangbo, Bénin</p>
-            <ul class="timeline-list">
-              <li>Formation scientifique exigeante centrée sur les mathématiques, la rigueur analytique et le raisonnement quantitatif.</li>
-              <li>Formation préparatoire aux concours d’intégration de grandes écoles d’ingénieurs, notamment l’École Polytechnique de Paris et l’École d’Ingénieurs du Littoral Côte d’Opale (France).</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <a href="../index.html#parcours" class="back-link">← Retour à la page d’accueil</a>
   </div>
 </section>
 
-<footer class="footer footer--pro">
+<!-- ════════════ BREADCRUMB ════════════ -->
+<div class="breadcrumb">
+  <div class="container breadcrumb__inner">
+    <a href="index.html">Accueil</a>
+    <span class="breadcrumb__sep">›</span>
+    <span class="breadcrumb__current">Parcours</span>
+  </div>
+</div>
+
+<!-- ════════════ CORPS ════════════ -->
+<div class="page-body">
+  <div class="container page-layout">
+
+    <!-- ── CONTENU PRINCIPAL ── -->
+    <main>
+
+      <!-- ─────────────────────────────
+           EXPÉRIENCES PROFESSIONNELLES
+      ───────────────────────────────── -->
+      <section id="experiences" class="section-block">
+        <div class="section-heading">
+          <div class="section-heading__icon" style="background:var(--blue-soft);">💼</div>
+          <div class="section-heading__text">
+            <h2>Expériences professionnelles</h2>
+            <span class="section-heading__sub">3 postes · Actuariat, Data Science, Statistiques</span>
+          </div>
+          <span class="section-heading__count">01</span>
+        </div>
+
+        <div class="timeline">
+
+          <!-- ── Crédit Agricole ── -->
+          <article class="timeline-item">
+            <div class="timeline-dot">💼</div>
+            <div class="timeline-card">
+              <div class="timeline-card__bar"></div>
+              <div class="timeline-card__body">
+                <div class="timeline-card__header">
+                  <div class="timeline-card__left">
+                    <h3 class="timeline-role">Chargé d'études actuarielles / Data Scientist — Risk Modeling</h3>
+                    <p class="timeline-org">Crédit Agricole Assurances Solutions</p>
+                  </div>
+                  <span class="timeline-badge timeline-badge--pro">Mars 2025 – Sept. 2025</span>
+                </div>
+                <p class="timeline-meta">Paris, France</p>
+                <div class="timeline-card__divider"></div>
+                <ul class="timeline-list">
+                  <li>Pilotage d'une étude de segmentation du risque de décès sur un portefeuille de <span class="hl--blue">plus de 10 millions de lignes</span> sous SAS.</li>
+                  <li>Segmentation des comportements d'épargne par CSP et gamme produit via modèles de machine learning.</li>
+                  <li>Développement de modèles prédictifs (Random Forest, XGBoost) réduisant de <span class="hl--blue">+5 %</span> l'erreur d'ajustement actuariel et améliorant la cohérence des hypothèses de projection.</li>
+                  <li>Construction de lois de mortalité prospectives (lissage Whittaker-Henderson, extrapolation Denuit-Goderniaux) pour la projection long terme des engagements sur un <span class="hl--blue">horizon 30 ans</span>.</li>
+                  <li>Évaluation de la qualité prédictive des lois construites à travers la comparaison des ratios Observé/Attendu.</li>
+                  <li>Tests de sensibilité (±5 % mortalité) montrant un impact maîtrisé sur le Best Estimate <span class="hl--blue">(-0,20 % à +0,40 %)</span> dans le cadre Solvabilité II / IFRS 17.</li>
+                  <li>Restitution des résultats à la Direction Actuariat avec recommandations intégrées dans l'analyse de risque.</li>
+                </ul>
+                <div class="timeline-tags">
+                  <span class="timeline-tag timeline-tag--blue">SAS</span>
+                  <span class="timeline-tag timeline-tag--blue">Python</span>
+                  <span class="timeline-tag timeline-tag--blue">Machine Learning</span>
+                  <span class="timeline-tag timeline-tag--blue">Solvabilité II</span>
+                  <span class="timeline-tag timeline-tag--blue">IFRS 17</span>
+                  <span class="timeline-tag timeline-tag--gold">Lois de mortalité</span>
+                  <span class="timeline-tag timeline-tag--gold">Best Estimate</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ── SUNU ── -->
+          <article class="timeline-item">
+            <div class="timeline-dot">📊</div>
+            <div class="timeline-card">
+              <div class="timeline-card__bar"></div>
+              <div class="timeline-card__body">
+                <div class="timeline-card__header">
+                  <div class="timeline-card__left">
+                    <h3 class="timeline-role">Chargé d'études actuarielles et statistiques</h3>
+                    <p class="timeline-org">SUNU Assurance</p>
+                  </div>
+                  <span class="timeline-badge timeline-badge--pro">Mars 2022 – Avr. 2023</span>
+                </div>
+                <p class="timeline-meta">Cotonou, Bénin</p>
+                <div class="timeline-card__divider"></div>
+                <ul class="timeline-list">
+                  <li>Analyse actuarielle et financière d'un portefeuille d'environ <span class="hl--blue">10 000 contrats</span>, avec identification de segments à sur-sinistralité.</li>
+                  <li>Réalisation d'études tarifaires sur la fréquence, le coût moyen et le ratio S/P ayant conduit à des <span class="hl">ajustements de primes</span>.</li>
+                  <li>Suivi mensuel des indicateurs techniques et formulation de recommandations sur les dérives observées.</li>
+                  <li>Automatisation des reportings sous SAS et Python, avec réduction significative du temps de production.</li>
+                </ul>
+                <div class="timeline-tags">
+                  <span class="timeline-tag timeline-tag--blue">SAS</span>
+                  <span class="timeline-tag timeline-tag--blue">Python</span>
+                  <span class="timeline-tag timeline-tag--gold">Tarification</span>
+                  <span class="timeline-tag timeline-tag--gold">Ratio S/P</span>
+                  <span class="timeline-tag">Reporting automatisé</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ── INStaD ── -->
+          <article class="timeline-item">
+            <div class="timeline-dot">🗂</div>
+            <div class="timeline-card">
+              <div class="timeline-card__bar"></div>
+              <div class="timeline-card__body">
+                <div class="timeline-card__header">
+                  <div class="timeline-card__left">
+                    <h3 class="timeline-role">Chef de projet statistique <span style="font-size:14px;font-weight:400;color:var(--ink-muted)">(stage)</span></h3>
+                    <p class="timeline-org">Institut National de la Statistique et de la Démographie</p>
+                  </div>
+                  <span class="timeline-badge timeline-badge--pro">Août 2021 – Jan. 2022</span>
+                </div>
+                <p class="timeline-meta">Cotonou, Bénin</p>
+                <div class="timeline-card__divider"></div>
+                <ul class="timeline-list">
+                  <li>Formation de près de <span class="hl--blue">700 agents enquêteurs</span> aux procédures et outils de collecte de données.</li>
+                  <li>Conception et automatisation d'outils de collecte et de traitement de données pour des enquêtes statistiques.</li>
+                  <li>Participation à la rédaction de documents techniques et méthodologiques liés aux dispositifs de collecte.</li>
+                  <li>Supervision des opérations de terrain afin de garantir la qualité et la conformité des données collectées.</li>
+                  <li>Analyse sectorielle de la croissance économique entre <span class="hl">2015 et 2020</span>, utilisée comme support d'interprétation macroéconomique.</li>
+                </ul>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Enquêtes statistiques</span>
+                  <span class="timeline-tag">Collecte de données</span>
+                  <span class="timeline-tag timeline-tag--gold">Analyse économique</span>
+                  <span class="timeline-tag">Supervision terrain</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────
+           FORMATION
+      ───────────────────────────────── -->
+      <section id="formation" class="section-block">
+        <div class="section-heading">
+          <div class="section-heading__icon" style="background:var(--rose-soft);">🎓</div>
+          <div class="section-heading__text">
+            <h2>Formation académique</h2>
+            <span class="section-heading__sub">Mathématiques · Statistiques · Finance · Actuariat</span>
+          </div>
+          <span class="section-heading__count">02</span>
+        </div>
+
+        <div class="timeline timeline--edu">
+
+          <!-- ── Sorbonne ── -->
+          <article class="timeline-item">
+            <div class="timeline-dot">🏛</div>
+            <div class="timeline-card">
+              <div class="timeline-card__bar"></div>
+              <div class="timeline-card__body">
+                <div class="timeline-card__header">
+                  <div class="timeline-card__left">
+                    <h3 class="timeline-role">Master 2 Banque, Finance, Assurance — Ingénierie de l'Assurance</h3>
+                    <p class="timeline-org">Université Paris 1 Panthéon-Sorbonne</p>
+                  </div>
+                  <span class="timeline-badge timeline-badge--edu">2023 – 2025</span>
+                </div>
+                <p class="timeline-meta">Paris, France</p>
+                <div class="timeline-card__divider"></div>
+                <ul class="timeline-list">
+                  <li>Formation orientée actuariat, assurance, gestion des risques et modélisation financière.</li>
+                  <li>Approfondissement des enjeux techniques liés à Solvabilité II, IFRS 17 et à l'analyse actuarielle.</li>
+                </ul>
+                <div class="timeline-tags">
+                  <span class="timeline-tag timeline-tag--blue">Actuariat</span>
+                  <span class="timeline-tag timeline-tag--blue">Solvabilité II</span>
+                  <span class="timeline-tag timeline-tag--blue">IFRS 17</span>
+                  <span class="timeline-tag">Gestion des risques</span>
+                  <span class="timeline-tag">Modélisation financière</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ── IMSP M2 ── -->
+          <article class="timeline-item">
+            <div class="timeline-dot">📐</div>
+            <div class="timeline-card">
+              <div class="timeline-card__bar"></div>
+              <div class="timeline-card__body">
+                <div class="timeline-card__header">
+                  <div class="timeline-card__left">
+                    <h3 class="timeline-role">Master 2 Statistiques et Probabilités Appliquées</h3>
+                    <p class="timeline-org">Institut de Mathématiques et de Sciences Physiques — IMSP</p>
+                  </div>
+                  <span class="timeline-badge timeline-badge--edu">2019 – 2021</span>
+                </div>
+                <p class="timeline-meta">Dangbo, Bénin · Centre d'excellence de la Banque mondiale</p>
+                <div class="timeline-card__divider"></div>
+                <ul class="timeline-list">
+                  <li>Formation approfondie en probabilités, statistique appliquée, modélisation et analyse quantitative.</li>
+                  <li>Consolidation des bases méthodologiques nécessaires à l'analyse des données et à la modélisation du risque.</li>
+                </ul>
+                <div class="timeline-tags">
+                  <span class="timeline-tag timeline-tag--blue">Probabilités</span>
+                  <span class="timeline-tag timeline-tag--blue">Statistiques appliquées</span>
+                  <span class="timeline-tag timeline-tag--gold">Modélisation quantitative</span>
+                  <span class="timeline-tag">Analyse de données</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ── IMSP Prépas ── -->
+          <article class="timeline-item">
+            <div class="timeline-dot">🔢</div>
+            <div class="timeline-card">
+              <div class="timeline-card__bar"></div>
+              <div class="timeline-card__body">
+                <div class="timeline-card__header">
+                  <div class="timeline-card__left">
+                    <h3 class="timeline-role">Classes préparatoires — Licence Mathématiques</h3>
+                    <p class="timeline-org">Institut de Mathématiques et de Sciences Physiques — IMSP</p>
+                  </div>
+                  <span class="timeline-badge timeline-badge--edu">2015 – 2019</span>
+                </div>
+                <p class="timeline-meta">Dangbo, Bénin</p>
+                <div class="timeline-card__divider"></div>
+                <ul class="timeline-list">
+                  <li>Formation scientifique exigeante centrée sur les mathématiques, la rigueur analytique et le raisonnement quantitatif.</li>
+                  <li>Préparation aux concours d'intégration des grandes écoles d'ingénieurs, notamment l'<span class="hl">École Polytechnique de Paris</span> et l'<span class="hl">EILCO</span> (France).</li>
+                </ul>
+                <div class="timeline-tags">
+                  <span class="timeline-tag timeline-tag--gold">Mathématiques</span>
+                  <span class="timeline-tag">Analyse</span>
+                  <span class="timeline-tag">Algèbre</span>
+                  <span class="timeline-tag">Raisonnement formel</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ── TABLE DES MATIÈRES ── -->
+    <nav class="toc" aria-label="Navigation de la page">
+      <div class="toc__label">Sur cette page</div>
+      <ul class="toc__list">
+        <li>
+          <a href="#experiences">
+            <span class="toc__dot" style="background:var(--blue)"></span>
+            Expériences
+          </a>
+        </li>
+        <li>
+          <a href="#formation">
+            <span class="toc__dot" style="background:var(--rose)"></span>
+            Formation
+          </a>
+        </li>
+      </ul>
+      <a href="index.html#parcours" class="toc__back">← Retour à l'accueil</a>
+    </nav>
+
+  </div>
+</div>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer class="footer">
   <div class="container footer__inner">
-    <p>© 2025 Gérard Sokpetin</p>
-    <p class="footer__muted">Actuariat & Data — Portfolio</p>
+    <p>© 2025 Gérard Sokpetin — Actuariat & Data Science</p>
+    <p><a href="index.html">← Retour au portfolio</a></p>
   </div>
 </footer>
 
 </body>
 </html>
-
-
-
-
