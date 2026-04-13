@@ -4,488 +4,925 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Compétences — Gérard Sokpetin</title>
-  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Compétences en actuariat, data science, statistiques et finance — Gérard Sokpetin" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SG39TQLYT6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-SG39TQLYT6');
-    </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SG39TQLYT6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SG39TQLYT6');
+  </script>
 
   <style>
-    .skills-hero{
-      background: linear-gradient(135deg, #123f6b 0%, #0f3558 100%);
-      color: #fff;
-      padding: 56px 0 52px;
-      margin-bottom: 44px;
+    /* ═══════════════════════════════
+       TOKENS — identiques à index.html
+    ═══════════════════════════════ */
+    :root {
+      --ink:        #0d1520;
+      --ink-soft:   #3d4f63;
+      --ink-muted:  #7a8fa6;
+      --paper:      #faf8f5;
+      --paper2:     #f2efe9;
+      --paper3:     #e8e3da;
+      --gold:       #b08a4e;
+      --gold-light: #d4aa72;
+      --gold-soft:  #f5ead8;
+      --blue:       #1e3a5f;
+      --blue-mid:   #2d5485;
+      --blue-soft:  #dce8f5;
+      --green:      #1a6644;
+      --green-soft: #d8f0e5;
+      --purple:     #4c2d8f;
+      --purple-soft:#ede8f8;
+      --orange:     #9a4a12;
+      --orange-soft:#fce8d8;
+      --line:       #ddd8cf;
+      --shadow-sm:  0 2px 8px rgba(13,21,32,.07);
+      --shadow-md:  0 8px 28px rgba(13,21,32,.10);
+      --shadow-lg:  0 20px 60px rgba(13,21,32,.13);
+      --radius:     16px;
+      --radius-sm:  10px;
     }
 
-    .skills-hero h1{
-      margin: 0;
-      font-size: clamp(2.1rem, 4vw, 3.3rem);
-      line-height: 1.1;
-      color: #f6dfb4;
+    /* ═══════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .skills-layout{
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 240px;
-      gap: 34px;
-      align-items: start;
+    img { display: block; max-width: 100%; }
+    a { text-underline-offset: 5px; }
+
+    .container {
+      width: 92%;
+      max-width: 1120px;
+      margin: 0 auto;
     }
 
-    .skills-main{
-      min-width: 0;
-    }
-
-    .skills-aside{
+    /* ═══════════════════════════════
+       HEADER
+    ═══════════════════════════════ */
+    .header {
       position: sticky;
-      top: 110px;
-      border-left: 1px solid #d9dee8;
-      padding-left: 18px;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,248,245,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
     }
 
-    .skills-aside__title{
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 10px;
-      font-size: 1rem;
-    }
-
-    .skills-aside a{
-      display: block;
-      text-decoration: none;
-      color: #4b5563;
-      margin: 8px 0;
-      transition: color .2s ease;
-    }
-
-    .skills-aside a:hover{
-      color: #4f7df3;
-    }
-
-    .skills-intro{
-      font-size: 1.3rem;
-      line-height: 1.8;
-      color: #334155;
-      font-style: italic;
-      text-align: center;
-      margin: 0 0 28px;
-    }
-
-    .skills-divider{
+    .header__inner {
       display: flex;
-      justify-content: center;
-      margin: 18px 0 34px;
-      color: #4f7df3;
-      font-size: 2rem;
-      line-height: 1;
-    }
-
-    .section-block{
-      margin-bottom: 56px;
-      scroll-margin-top: 110px;
-    }
-
-    .section-block h2{
-      font-size: 2rem;
-      line-height: 1.2;
-      color: #0f172a;
-      margin: 0 0 14px;
-    }
-
-    .section-rule{
-      height: 1px;
-      background: #d9dee8;
-      margin-bottom: 28px;
-    }
-
-    .overview-card{
-      background: #fff;
-      border: 1px solid #e6ebf2;
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
-      margin-bottom: 26px;
-    }
-
-    .overview-grid{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    .overview-subtitle{
-      margin: 0 0 12px;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #0f172a;
-    }
-
-    .radar-wrap{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 360px;
-      overflow: hidden;
-    }
-
-    .radar-wrap svg{
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .bars-list{
-      display: grid;
-      gap: 14px;
-      margin-top: 6px;
-    }
-
-    .bar-row{
-      display: grid;
-      grid-template-columns: 150px 1fr 56px;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .bar-label{
-      font-weight: 600;
-      color: #0f172a;
-    }
-
-    .bar-track{
-      height: 14px;
-      border-radius: 999px;
-      background: #e8eef8;
-      overflow: hidden;
-    }
-
-    .bar-fill{
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #4f7df3 0%, #7aa2ff 100%);
-    }
-
-    .bar-value{
-      font-size: .95rem;
-      color: #64748b;
-      font-weight: 600;
-      text-align: right;
-    }
-
-    .accordion{
-      display: grid;
-      gap: 18px;
-    }
-
-    .accordion details{
-      background: #fff;
-      border: 1px solid #e6ebf2;
-      border-left: 5px solid #4f7df3;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
-    }
-
-    .accordion details.theory{
-      border-left-color: #4f7df3;
-    }
-
-    .accordion details.language{
-      border-left-color: #35b84a;
-    }
-
-    .accordion details.tool{
-      border-left-color: #7c5cff;
-    }
-
-    .accordion details.soft{
-      border-left-color: #ff7a1a;
-    }
-
-    .accordion summary{
-      list-style: none;
-      cursor: pointer;
-      padding: 16px 18px;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #0f172a;
-      background: #f8fafc;
-      display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
     }
 
-    .accordion summary::-webkit-details-marker{
-      display: none;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
     }
 
-    .accordion summary::after{
-      content: "⌄";
-      font-size: 1.1rem;
-      color: #64748b;
-      transition: transform .2s ease;
+    .logo__monogram {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--blue);
+      color: var(--gold-light);
+      font-family: 'DM Serif Display', serif;
+      font-size: 15px;
+      display: grid;
+      place-items: center;
+      letter-spacing: -.5px;
     }
 
-    .accordion details[open] summary::after{
-      transform: rotate(180deg);
+    .logo__text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: .01em;
     }
 
-    .accordion-content{
-      padding: 16px 18px 18px;
-      color: #334155;
-      line-height: 1.8;
+    .logo__sub {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--ink-muted);
+      display: block;
+      margin-top: 1px;
     }
 
-    .accordion-content p{
-      margin: 0 0 12px;
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .accordion-content p:last-child{
-      margin-bottom: 0;
+    .nav a {
+      color: var(--ink-soft);
+      padding: 7px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color .15s, background .15s;
     }
 
-    .accordion-content ul{
-      margin: 0;
-      padding-left: 20px;
+    .nav a:hover { color: var(--ink); background: var(--paper2); }
+
+    .nav .nav__back {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--ink-soft);
     }
 
-    .accordion-content li{
-      margin-bottom: 6px;
+    .nav .nav__cta {
+      background: var(--blue);
+      color: #fff;
+      font-weight: 600;
+      margin-left: 8px;
     }
 
-    .back-link{
+    .nav .nav__cta:hover { background: var(--blue-mid); color: #fff; }
+
+    /* ═══════════════════════════════
+       HERO BANNER
+    ═══════════════════════════════ */
+    .page-hero {
+      background: var(--blue);
+      padding: 60px 0 52px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(176,138,78,.12), transparent),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(255,255,255,.04), transparent);
+      pointer-events: none;
+    }
+
+    .page-hero__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      font-size: 11px;
+      letter-spacing: .2em;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 14px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--gold-light);
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    .page-hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 5vw, 58px);
+      color: #fff;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .page-hero h1 em {
+      color: var(--gold-light);
+      font-style: italic;
+    }
+
+    .page-hero__desc {
+      max-width: 62ch;
+      font-size: 16px;
+      color: rgba(255,255,255,.65);
+      line-height: 1.75;
+    }
+
+    /* ═══════════════════════════════
+       BREADCRUMB
+    ═══════════════════════════════ */
+    .breadcrumb {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper2);
+    }
+
+    .breadcrumb__inner {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+
+    .breadcrumb a {
+      color: var(--ink-muted);
       text-decoration: none;
-      color: #4f7df3;
+      transition: color .15s;
+    }
+
+    .breadcrumb a:hover { color: var(--blue); }
+
+    .breadcrumb__sep { color: var(--line); }
+    .breadcrumb__current { color: var(--ink-soft); font-weight: 500; }
+
+    /* ═══════════════════════════════
+       PAGE LAYOUT
+    ═══════════════════════════════ */
+    .page-body {
+      padding: 56px 0 80px;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ═══════════════════════════════
+       STICKY SIDEBAR
+    ═══════════════════════════════ */
+    .toc {
+      position: sticky;
+      top: 84px;
+    }
+
+    .toc__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .toc__list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .toc__list a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      transition: color .15s, background .15s;
+    }
+
+    .toc__list a:hover {
+      color: var(--blue);
+      background: var(--blue-soft);
+    }
+
+    .toc__dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .toc__back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 12px;
+      border-radius: 8px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 13px;
       font-weight: 600;
-      margin-top: 10px;
+      text-decoration: none;
+      margin-top: 20px;
+      border: 1.5px solid rgba(30,58,95,.15);
+      transition: all .15s;
     }
 
-    @media (max-width: 980px){
-      .skills-layout{
+    .toc__back:hover { background: var(--blue); color: #fff; }
+
+    /* ═══════════════════════════════
+       SECTION BLOCKS
+    ═══════════════════════════════ */
+    .section-block {
+      margin-bottom: 60px;
+      scroll-margin-top: 100px;
+    }
+
+    .section-block:last-child { margin-bottom: 0; }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .section-heading__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .section-heading h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(22px, 2.5vw, 28px);
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    .section-rule {
+      width: 100%;
+      height: 1px;
+      background: var(--line);
+      margin-bottom: 28px;
+      display: none; /* replaced by heading */
+    }
+
+    /* ═══════════════════════════════
+       OVERVIEW CARD (radar + bars)
+    ═══════════════════════════════ */
+    .overview-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .overview-subtitle {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 18px;
+    }
+
+    .radar-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 340px;
+    }
+
+    .radar-wrap svg { max-width: 100%; height: auto; display: block; }
+
+    /* Bars */
+    .bars-list { display: grid; gap: 14px; }
+
+    .bar-row { display: grid; gap: 8px; }
+
+    .bar-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .bar-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .bar-value {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    .bar-track {
+      height: 8px;
+      border-radius: 999px;
+      background: var(--paper2);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue) 0%, #4a7fc1 100%);
+    }
+
+    /* ═══════════════════════════════
+       ACCORDION
+    ═══════════════════════════════ */
+    .accordion { display: grid; gap: 10px; }
+
+    .accordion details {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: box-shadow .2s;
+    }
+
+    .accordion details:hover { box-shadow: var(--shadow-sm); }
+    .accordion details[open] { box-shadow: var(--shadow-sm); }
+
+    /* Couleur de la bordure gauche par type */
+    .accordion details.theory   { border-left: 4px solid var(--blue); }
+    .accordion details.language { border-left: 4px solid var(--green); }
+    .accordion details.tool     { border-left: 4px solid var(--purple); }
+    .accordion details.soft     { border-left: 4px solid var(--orange); }
+
+    .accordion summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 15px 18px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      background: var(--paper);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: space-between;
+      user-select: none;
+      transition: background .15s;
+    }
+
+    .accordion summary::-webkit-details-marker { display: none; }
+    .accordion details[open] summary { background: var(--paper2); }
+
+    .summary-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .summary-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .theory   .summary-badge { background: var(--blue-soft);   color: var(--blue); }
+    .language .summary-badge { background: var(--green-soft);  color: var(--green); }
+    .tool     .summary-badge { background: var(--purple-soft); color: var(--purple); }
+    .soft     .summary-badge { background: var(--orange-soft); color: var(--orange); }
+
+    .summary-chevron {
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      color: var(--ink-muted);
+      font-size: 12px;
+      transition: transform .22s ease;
+      flex-shrink: 0;
+    }
+
+    .accordion details[open] .summary-chevron { transform: rotate(180deg); }
+
+    .accordion-body {
+      padding: 16px 20px 20px 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .accordion-body p {
+      color: var(--ink-soft);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+
+    .accordion-body p:last-child { margin-bottom: 0; }
+
+    .accordion-body ul {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+      display: grid;
+      gap: 6px;
+    }
+
+    .accordion-body li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    .accordion-body li::before {
+      content: '→';
+      color: var(--ink-muted);
+      font-weight: 700;
+      margin-top: 1px;
+      flex-shrink: 0;
+      font-size: 13px;
+    }
+
+    .theory   .accordion-body li::before { color: var(--blue); }
+    .language .accordion-body li::before { color: var(--green); }
+    .tool     .accordion-body li::before { color: var(--purple); }
+    .soft     .accordion-body li::before { color: var(--orange); }
+
+    /* ═══════════════════════════════
+       SKILLS INTRO BLOCK
+    ═══════════════════════════════ */
+    .intro-block {
+      background: var(--blue);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 80% at 90% 50%, rgba(176,138,78,.15), transparent);
+      pointer-events: none;
+    }
+
+    .intro-block p {
+      position: relative;
+      font-size: 16px;
+      color: rgba(255,255,255,.80);
+      line-height: 1.8;
+      font-style: italic;
+      margin: 0;
+    }
+
+    .intro-block p strong {
+      color: var(--gold-light);
+      font-style: normal;
+    }
+
+    /* ═══════════════════════════════
+       FOOTER
+    ═══════════════════════════════ */
+    .footer {
+      background: var(--ink);
+      padding: 26px 0;
+    }
+
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer p { font-size: 13px; color: rgba(255,255,255,.4); margin: 0; }
+    .footer a { color: rgba(255,255,255,.6); text-decoration: none; }
+    .footer a:hover { color: rgba(255,255,255,.9); }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line), transparent);
+    }
+
+    /* ═══════════════════════════════
+       FOCUS
+    ═══════════════════════════════ */
+    :focus-visible {
+      outline: 3px solid rgba(30,58,95,.4);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    /* ═══════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════ */
+    @media (max-width: 900px) {
+      .page-layout {
         grid-template-columns: 1fr;
       }
 
-      .skills-aside{
+      .toc {
         position: static;
-        border-left: none;
-        padding-left: 0;
-        border-top: 1px solid #d9dee8;
-        padding-top: 18px;
-        margin-bottom: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 32px;
       }
 
-      .overview-grid{
-        grid-template-columns: 1fr;
+      .toc__label { display: none; }
+
+      .toc__list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
       }
 
-      .bar-row{
-        grid-template-columns: 120px 1fr 48px;
+      .toc__list a {
+        padding: 6px 12px;
+        background: var(--paper2);
+        border: 1px solid var(--line);
+        border-radius: 99px;
+        font-size: 12px;
       }
+
+      .toc__back { margin-top: 0; }
+
+      .overview-grid { grid-template-columns: 1fr; }
+
+      .bar-row { gap: 8px; }
     }
 
-    @media (max-width: 640px){
-      .overview-card{
-        padding: 20px 16px;
-      }
-
-      .bar-row{
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .bar-value{
-        text-align: left;
-      }
+    @media (max-width: 640px) {
+      .overview-card { padding: 20px 18px; }
+      .page-body { padding: 36px 0 60px; }
     }
   </style>
 </head>
 <body>
 
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
 <header class="header">
   <div class="container header__inner">
-    <div class="logo">GS</div>
+    <a href="index.html" class="logo">
+      <div class="logo__monogram">GS</div>
+      <div>
+        <span class="logo__text">Gérard Sokpetin</span>
+        <span class="logo__sub">Actuariat · Data Science</span>
+      </div>
+    </a>
     <nav class="nav">
-      <a href="../index.html#competences">← Retour</a>
-      <a href="../index.html#contact">Contact</a>
+      <a href="index.html#competences" class="nav__back">← Retour au portfolio</a>
+      <a href="index.html#contact" class="nav__cta">Contact</a>
     </nav>
   </div>
 </header>
 
-<section class="skills-hero">
-  <div class="container">
-    <h1>Compétences</h1>
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="page-hero">
+  <div class="container page-hero__inner">
+    <p class="eyebrow">Profil</p>
+    <h1>Mes <em>Compétences</em></h1>
+    <p class="page-hero__desc">
+      Une expertise construite à l'intersection des statistiques, de la finance, de l'actuariat et de la gestion des risques — développée dans des contextes exigeants et orientée vers la décision.
+    </p>
   </div>
 </section>
 
-<section class="section">
-  <div class="container skills-layout">
+<!-- ═══════════════════════ BREADCRUMB ═══════════════════════ -->
+<div class="breadcrumb">
+  <div class="container breadcrumb__inner">
+    <a href="index.html">Accueil</a>
+    <span class="breadcrumb__sep">›</span>
+    <span class="breadcrumb__current">Compétences</span>
+  </div>
+</div>
 
-    <main class="skills-main">
-      <p class="skills-intro">Vous trouverez ci-dessous une présentation structurée de mes compétences.</p>
-      <div class="skills-divider">⌄</div>
+<!-- ═══════════════════════ CORPS ═══════════════════════ -->
+<div class="page-body">
+  <div class="container page-layout">
 
+    <!-- ── CONTENU PRINCIPAL ── -->
+    <main>
+
+      <div class="intro-block">
+        <p>
+          Ces compétences s'appuient sur une pratique concrète de l'analyse de données, de la
+          modélisation quantitative, de la gestion du risque et de la restitution décisionnelle.
+          Elles me permettent de <strong>fiabiliser les traitements</strong>,
+          de <strong>construire des modèles robustes</strong> et de produire des résultats
+          <strong>lisibles, exploitables et utiles aux équipes métier</strong>.
+        </p>
+      </div>
+
+      <!-- ─── 1. VUE D'ENSEMBLE ─── -->
       <section id="vue-ensemble" class="section-block">
-        <h2>Vue d’ensemble des compétences</h2>
-        <div class="section-rule"></div>
+        <div class="section-heading">
+          <div class="section-heading__icon" style="background:var(--blue-soft);">📡</div>
+          <h2>Vue d'ensemble</h2>
+        </div>
 
         <div class="overview-card">
           <div class="overview-grid">
+
+            <!-- Radar -->
             <div>
               <p class="overview-subtitle">Positionnement global</p>
               <div class="radar-wrap">
-                <svg viewBox="0 0 420 420" aria-label="Radar des compétences">
+                <svg viewBox="0 0 420 420" aria-label="Radar des compétences" role="img">
                   <defs>
                     <filter id="shadow">
                       <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity=".10"/>
                     </filter>
+                    <linearGradient id="radarFill" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#1e3a5f" stop-opacity=".40"/>
+                      <stop offset="100%" stop-color="#4a7fc1" stop-opacity=".25"/>
+                    </linearGradient>
                   </defs>
 
                   <g transform="translate(210,210)">
-                    <circle r="40" fill="none" stroke="#d6deea"/>
-                    <circle r="80" fill="none" stroke="#d6deea"/>
-                    <circle r="120" fill="none" stroke="#d6deea"/>
-                    <circle r="160" fill="none" stroke="#d6deea"/>
+                    <!-- Grilles -->
+                    <circle r="40"  fill="none" stroke="#ddd8cf" stroke-width="1"/>
+                    <circle r="80"  fill="none" stroke="#ddd8cf" stroke-width="1"/>
+                    <circle r="120" fill="none" stroke="#ddd8cf" stroke-width="1"/>
+                    <circle r="160" fill="none" stroke="#ddd8cf" stroke-width="1"/>
 
-                    <g stroke="#d6deea">
-                      <line x1="0" y1="0" x2="0" y2="-160"/>
-                      <line x1="0" y1="0" x2="103" y2="-122"/>
-                      <line x1="0" y1="0" x2="154" y2="-27"/>
-                      <line x1="0" y1="0" x2="136" y2="84"/>
-                      <line x1="0" y1="0" x2="55" y2="150"/>
-                      <line x1="0" y1="0" x2="-55" y2="150"/>
+                    <!-- Axes -->
+                    <g stroke="#ddd8cf" stroke-width="1">
+                      <line x1="0" y1="0" x2="0"    y2="-160"/>
+                      <line x1="0" y1="0" x2="103"  y2="-122"/>
+                      <line x1="0" y1="0" x2="154"  y2="-27"/>
+                      <line x1="0" y1="0" x2="136"  y2="84"/>
+                      <line x1="0" y1="0" x2="55"   y2="150"/>
+                      <line x1="0" y1="0" x2="-55"  y2="150"/>
                       <line x1="0" y1="0" x2="-136" y2="84"/>
                       <line x1="0" y1="0" x2="-154" y2="-27"/>
                       <line x1="0" y1="0" x2="-103" y2="-122"/>
                     </g>
 
+                    <!-- Polygone compétences -->
                     <polygon
-                      points="
-                        0,-125
-                        70,-83
-                        111,-20
-                        89,55
-                        40,109
-                        -40,109
-                        -95,59
-                        -116,-20
-                        -80,-95
-                      "
-                      fill="rgba(79,125,243,.35)"
-                      stroke="#1e5dc8"
-                      stroke-width="3"
+                      points="0,-125 70,-83 111,-20 89,55 40,109 -40,109 -95,59 -116,-20 -80,-95"
+                      fill="url(#radarFill)"
+                      stroke="#1e3a5f"
+                      stroke-width="2.5"
                       filter="url(#shadow)"
                     />
 
-                    <g fill="#f4d35e" stroke="#1e5dc8" stroke-width="2">
-                      <circle cx="0" cy="-125" r="5"/>
-                      <circle cx="70" cy="-83" r="5"/>
-                      <circle cx="111" cy="-20" r="5"/>
-                      <circle cx="89" cy="55" r="5"/>
-                      <circle cx="40" cy="109" r="5"/>
-                      <circle cx="-40" cy="109" r="5"/>
-                      <circle cx="-95" cy="59" r="5"/>
-                      <circle cx="-116" cy="-20" r="5"/>
-                      <circle cx="-80" cy="-95" r="5"/>
+                    <!-- Points -->
+                    <g fill="#b08a4e" stroke="#1e3a5f" stroke-width="2">
+                      <circle cx="0"    cy="-125" r="5"/>
+                      <circle cx="70"   cy="-83"  r="5"/>
+                      <circle cx="111"  cy="-20"  r="5"/>
+                      <circle cx="89"   cy="55"   r="5"/>
+                      <circle cx="40"   cy="109"  r="5"/>
+                      <circle cx="-40"  cy="109"  r="5"/>
+                      <circle cx="-95"  cy="59"   r="5"/>
+                      <circle cx="-116" cy="-20"  r="5"/>
+                      <circle cx="-80"  cy="-95"  r="5"/>
                     </g>
 
-                    <g font-size="15" fill="#0f3558" font-weight="600">
-                      <text x="0" y="-176" text-anchor="middle">Statistiques</text>
-                      <text x="118" y="-128" text-anchor="middle">Finance</text>
-                      <text x="177" y="-22" text-anchor="start">Actuariat</text>
-                      <text x="152" y="96" text-anchor="start">Gestion de projet</text>
-                      <text x="58" y="176" text-anchor="middle">Restitution</text>
-                      <text x="-58" y="176" text-anchor="middle">Outils</text>
-                      <text x="-162" y="100" text-anchor="end">Visualisation</text>
-                      <text x="-177" y="-22" text-anchor="end">Programmation</text>
-                      <text x="-118" y="-128" text-anchor="middle">Machine Learning</text>
+                    <!-- Labels -->
+                    <g font-size="13" fill="#0d1520" font-weight="600" font-family="'DM Sans', sans-serif">
+                      <text x="0"    y="-176"  text-anchor="middle">Statistiques</text>
+                      <text x="118"  y="-132"  text-anchor="middle">Finance</text>
+                      <text x="177"  y="-22"   text-anchor="start">Actuariat</text>
+                      <text x="152"  y="96"    text-anchor="start">Gestion projet</text>
+                      <text x="58"   y="178"   text-anchor="middle">Restitution</text>
+                      <text x="-58"  y="178"   text-anchor="middle">Outils</text>
+                      <text x="-162" y="100"   text-anchor="end">Visualisation</text>
+                      <text x="-177" y="-22"   text-anchor="end">Programmation</text>
+                      <text x="-118" y="-132"  text-anchor="middle">Machine Learning</text>
                     </g>
                   </g>
                 </svg>
               </div>
             </div>
 
+            <!-- Barres -->
             <div>
               <p class="overview-subtitle">Niveau de pratique par domaine</p>
-
               <div class="bars-list">
                 <div class="bar-row">
-                  <div class="bar-label">Statistiques</div>
+                  <div class="bar-meta">
+                    <span class="bar-label">Statistiques</span>
+                    <span class="bar-value">78 %</span>
+                  </div>
                   <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
-                  <div class="bar-value">78%</div>
                 </div>
-
                 <div class="bar-row">
-                  <div class="bar-label">Finance</div>
+                  <div class="bar-meta">
+                    <span class="bar-label">Finance</span>
+                    <span class="bar-value">68 %</span>
+                  </div>
                   <div class="bar-track"><div class="bar-fill" style="width:68%"></div></div>
-                  <div class="bar-value">68%</div>
                 </div>
-
                 <div class="bar-row">
-                  <div class="bar-label">Actuariat</div>
+                  <div class="bar-meta">
+                    <span class="bar-label">Actuariat</span>
+                    <span class="bar-value">72 %</span>
+                  </div>
                   <div class="bar-track"><div class="bar-fill" style="width:72%"></div></div>
-                  <div class="bar-value">72%</div>
                 </div>
-
                 <div class="bar-row">
-                  <div class="bar-label">Machine Learning</div>
+                  <div class="bar-meta">
+                    <span class="bar-label">Machine Learning</span>
+                    <span class="bar-value">62 %</span>
+                  </div>
                   <div class="bar-track"><div class="bar-fill" style="width:62%"></div></div>
-                  <div class="bar-value">62%</div>
                 </div>
-
                 <div class="bar-row">
-                  <div class="bar-label">Programmation</div>
+                  <div class="bar-meta">
+                    <span class="bar-label">Programmation</span>
+                    <span class="bar-value">75 %</span>
+                  </div>
                   <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
-                  <div class="bar-value">75%</div>
                 </div>
-
                 <div class="bar-row">
-                  <div class="bar-label">Visualisation</div>
+                  <div class="bar-meta">
+                    <span class="bar-label">Visualisation</span>
+                    <span class="bar-value">70 %</span>
+                  </div>
                   <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
-                  <div class="bar-value">70%</div>
                 </div>
-
                 <div class="bar-row">
-                  <div class="bar-label">Outils</div>
+                  <div class="bar-meta">
+                    <span class="bar-label">Outils</span>
+                    <span class="bar-value">74 %</span>
+                  </div>
                   <div class="bar-track"><div class="bar-fill" style="width:74%"></div></div>
-                  <div class="bar-value">74%</div>
                 </div>
-
                 <div class="bar-row">
-                  <div class="bar-label">Gestion de projet</div>
+                  <div class="bar-meta">
+                    <span class="bar-label">Gestion de projet</span>
+                    <span class="bar-value">58 %</span>
+                  </div>
                   <div class="bar-track"><div class="bar-fill" style="width:58%"></div></div>
-                  <div class="bar-value">58%</div>
                 </div>
-
                 <div class="bar-row">
-                  <div class="bar-label">Restitution</div>
+                  <div class="bar-meta">
+                    <span class="bar-label">Restitution</span>
+                    <span class="bar-value">73 %</span>
+                  </div>
                   <div class="bar-track"><div class="bar-fill" style="width:73%"></div></div>
-                  <div class="bar-value">73%</div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
+      <!-- ─── 2. THÉORIES ─── -->
       <section id="theories" class="section-block">
-        <h2>Théories</h2>
-        <div class="section-rule"></div>
+        <div class="section-heading">
+          <div class="section-heading__icon" style="background:var(--blue-soft);">📐</div>
+          <h2>Théories</h2>
+        </div>
 
         <div class="accordion">
+
           <details class="theory" open>
-            <summary>Statistiques & économétrie</summary>
-            <div class="accordion-content">
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">∑</span>
+                Statistiques &amp; économétrie
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
               <ul>
-                <li>Statistiques descriptives, inférentielles et tests d’hypothèses.</li>
+                <li>Statistiques descriptives, inférentielles et tests d'hypothèses.</li>
                 <li>Régression linéaire simple et multiple, analyse de variance, séries temporelles.</li>
                 <li>Micro-économétrie : modèles à effets fixes et aléatoires.</li>
                 <li>Machine Learning : régression, classification supervisée et non supervisée.</li>
@@ -494,19 +931,31 @@
           </details>
 
           <details class="theory">
-            <summary>Finance</summary>
-            <div class="accordion-content">
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">€</span>
+                Finance
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
               <ul>
-                <li>Mathématiques financières, valorisation et logique d’actualisation.</li>
-                <li>Notions de gestion actif-passif, d’évaluation du risque et de décision en univers financier.</li>
+                <li>Mathématiques financières, valorisation et logique d'actualisation.</li>
+                <li>Notions de gestion actif-passif, d'évaluation du risque et de décision en univers financier.</li>
                 <li>Analyse des mécanismes de marché, lecture économique et financière des modèles.</li>
               </ul>
             </div>
           </details>
 
           <details class="theory">
-            <summary>Actuariat & gestion des risques</summary>
-            <div class="accordion-content">
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">⚖</span>
+                Actuariat &amp; gestion des risques
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
               <ul>
                 <li>Tarification, fréquence, sévérité, ratio S/P et segmentation du risque.</li>
                 <li>Lois de mortalité, analyse Observed/Expected, provisions Best Estimate.</li>
@@ -516,40 +965,63 @@
           </details>
 
           <details class="theory">
-            <summary>Assurance & exploitation des données</summary>
-            <div class="accordion-content">
-              <p>Application des méthodes quantitatives à l’assurance IARD, à l’assurance vie et à l’épargne-retraite.</p>
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">📋</span>
+                Assurance &amp; exploitation des données
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
+              <p>Application des méthodes quantitatives à l'assurance IARD, à l'assurance vie et à l'épargne-retraite.</p>
               <ul>
                 <li>Lecture des tendances de sinistralité et identification de facteurs de risque.</li>
-                <li>Construction de tableaux de bord et d’indicateurs utiles au pilotage.</li>
-                <li>Modèles d’aide à la décision pour orienter les actions métier.</li>
+                <li>Construction de tableaux de bord et d'indicateurs utiles au pilotage.</li>
+                <li>Modèles d'aide à la décision pour orienter les actions métier.</li>
               </ul>
             </div>
           </details>
+
         </div>
       </section>
 
+      <!-- ─── 3. LANGAGES ─── -->
       <section id="langages" class="section-block">
-        <h2>Langages</h2>
-        <div class="section-rule"></div>
+        <div class="section-heading">
+          <div class="section-heading__icon" style="background:var(--green-soft);">💻</div>
+          <h2>Langages</h2>
+        </div>
 
         <div class="accordion">
+
           <details class="language" open>
-            <summary>Python</summary>
-            <div class="accordion-content">
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">Py</span>
+                Python
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
               <ul>
                 <li>Traitement et préparation des données avec Pandas, NumPy et Polars.</li>
                 <li>Visualisation avec Matplotlib, Plotly et bibliothèques associées.</li>
                 <li>Machine Learning avec scikit-learn et approches supervisées / non supervisées.</li>
                 <li>Automatisation de traitements et structuration de scripts analytiques réutilisables.</li>
-                <li>Développement d’applications métiers avec Streamlit.</li>
+                <li>Développement d'applications métiers avec Streamlit.</li>
               </ul>
             </div>
           </details>
 
           <details class="language">
-            <summary>R</summary>
-            <div class="accordion-content">
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">R</span>
+                R
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
               <ul>
                 <li>Analyse de données, statistiques exploratoires et visualisation.</li>
                 <li>Manipulation de données avec dplyr, tidyr et écosystème tidyverse.</li>
@@ -560,8 +1032,14 @@
           </details>
 
           <details class="language">
-            <summary>SAS</summary>
-            <div class="accordion-content">
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">SAS</span>
+                SAS
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
               <ul>
                 <li>Manipulation de bases volumineuses, contrôles qualité et industrialisation des traitements.</li>
                 <li>Production de reportings, KPI et analyses statistiques en environnement assurance.</li>
@@ -571,8 +1049,14 @@
           </details>
 
           <details class="language">
-            <summary>SQL</summary>
-            <div class="accordion-content">
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">SQL</span>
+                SQL
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
               <ul>
                 <li>Manipulation de bases relationnelles et extraction ciblée de données.</li>
                 <li>Jointures, agrégations, filtres et structuration de requêtes analytiques.</li>
@@ -580,49 +1064,78 @@
               </ul>
             </div>
           </details>
+
         </div>
       </section>
 
+      <!-- ─── 4. OUTILS ─── -->
       <section id="outils" class="section-block">
-        <h2>Outils</h2>
-        <div class="section-rule"></div>
+        <div class="section-heading">
+          <div class="section-heading__icon" style="background:var(--purple-soft);">🔧</div>
+          <h2>Outils</h2>
+        </div>
 
         <div class="accordion">
+
           <details class="tool" open>
-            <summary>Excel & VBA</summary>
-            <div class="accordion-content">
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">XL</span>
+                Excel &amp; VBA
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
               <ul>
                 <li>Traitement de données, tableaux croisés dynamiques, fonctions avancées et structuration de reportings.</li>
                 <li>Automatisation de tâches répétitives et fiabilisation de traitements via VBA.</li>
-                <li>Utilisation pour la consolidation de données, le suivi d’indicateurs et la restitution métier.</li>
+                <li>Utilisation pour la consolidation de données, le suivi d'indicateurs et la restitution métier.</li>
               </ul>
             </div>
           </details>
 
           <details class="tool">
-            <summary>Dataiku</summary>
-            <div class="accordion-content">
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">DK</span>
+                Dataiku
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
               <ul>
-                <li>Utilisation pour la préparation de données, l’exploration, la modélisation et l’automatisation de workflows analytiques.</li>
+                <li>Utilisation pour la préparation de données, l'exploration, la modélisation et l'automatisation de workflows analytiques.</li>
                 <li>Construction de projets reproductibles intégrant traitement, visualisation et logique métier.</li>
-                <li>Approche adaptée aux environnements collaboratifs et aux cas d’usage orientés data science.</li>
+                <li>Approche adaptée aux environnements collaboratifs et aux cas d'usage orientés data science.</li>
               </ul>
             </div>
           </details>
 
           <details class="tool">
-            <summary>Qlik Sense</summary>
-            <div class="accordion-content">
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">QK</span>
+                Qlik Sense
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
               <ul>
-                <li>Développement de tableaux de bord dynamiques pour le suivi d’indicateurs et l’analyse de portefeuille.</li>
+                <li>Développement de tableaux de bord dynamiques pour le suivi d'indicateurs et l'analyse de portefeuille.</li>
                 <li>Restitution visuelle des tendances et aide à la décision pour les équipes métier.</li>
               </ul>
             </div>
           </details>
 
           <details class="tool">
-            <summary>Power BI / Data visualisation</summary>
-            <div class="accordion-content">
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">PBI</span>
+                Power BI / Data visualisation
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
               <ul>
                 <li>Conception de tableaux de bord lisibles, structurés et orientés décision.</li>
                 <li>Hiérarchisation des messages clés et mise en forme de KPI pour des publics non techniques.</li>
@@ -631,81 +1144,152 @@
           </details>
 
           <details class="tool">
-            <summary>Git / GitHub</summary>
-            <div class="accordion-content">
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">Git</span>
+                Git / GitHub
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
               <ul>
                 <li>Versionning de projets, suivi des évolutions et structuration des livrables techniques.</li>
                 <li>Organisation du code et publication de travaux dans une logique de traçabilité et de collaboration.</li>
               </ul>
             </div>
           </details>
+
         </div>
       </section>
 
+      <!-- ─── 5. SOFT SKILLS ─── -->
       <section id="soft-skills" class="section-block">
-        <h2>Soft skills</h2>
-        <div class="section-rule"></div>
+        <div class="section-heading">
+          <div class="section-heading__icon" style="background:var(--orange-soft);">🤝</div>
+          <h2>Soft skills</h2>
+        </div>
 
         <div class="accordion">
+
           <details class="soft" open>
-            <summary>Communication</summary>
-            <div class="accordion-content">
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">💬</span>
+                Communication
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
               <p>Capacité à restituer des résultats techniques à des interlocuteurs non spécialistes, avec clarté et pédagogie.</p>
             </div>
           </details>
 
           <details class="soft">
-            <summary>Rigueur & gestion du temps</summary>
-            <div class="accordion-content">
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">⏱</span>
+                Rigueur &amp; gestion du temps
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
               <ul>
-                <li>Sens de l’organisation, respect des délais et exigence de qualité dans les livrables.</li>
+                <li>Sens de l'organisation, respect des délais et exigence de qualité dans les livrables.</li>
                 <li>Capacité à structurer le travail pour produire des résultats fiables dans des contextes exigeants.</li>
               </ul>
             </div>
           </details>
 
           <details class="soft">
-            <summary>Curiosité & apprentissage continu</summary>
-            <div class="accordion-content">
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">🔍</span>
+                Curiosité &amp; apprentissage continu
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
               <p>Veille régulière sur les nouvelles pratiques, les outils et les évolutions en data, actuariat et finance.</p>
             </div>
           </details>
 
           <details class="soft">
-            <summary>Pragmatisme & adaptabilité</summary>
-            <div class="accordion-content">
-              <p>Capacité à m’adapter à des environnements variés et à proposer des solutions réalistes, utiles et rapidement mobilisables.</p>
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">🔄</span>
+                Pragmatisme &amp; adaptabilité
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
+              <p>Capacité à m'adapter à des environnements variés et à proposer des solutions réalistes, utiles et rapidement mobilisables.</p>
             </div>
           </details>
 
           <details class="soft">
-            <summary>Gestion de projet</summary>
-            <div class="accordion-content">
-              <p>Capacité à structurer un travail, à coordonner les étapes d’un projet analytique et à faire avancer les livrables dans un cadre clair et méthodique.</p>
+            <summary>
+              <span class="summary-left">
+                <span class="summary-badge">📌</span>
+                Gestion de projet
+              </span>
+              <span class="summary-chevron">▾</span>
+            </summary>
+            <div class="accordion-body">
+              <p>Capacité à structurer un travail, à coordonner les étapes d'un projet analytique et à faire avancer les livrables dans un cadre clair et méthodique.</p>
             </div>
           </details>
+
         </div>
       </section>
 
-      <a href="../index.html#competences" class="back-link">← Retour à la page d’accueil</a>
     </main>
 
-    <aside class="skills-aside">
-      <div class="skills-aside__title">Compétences</div>
-      <a href="#vue-ensemble">Vue d’ensemble des compétences</a>
-      <a href="#theories">Théories</a>
-      <a href="#langages">Langages</a>
-      <a href="#outils">Outils</a>
-      <a href="#soft-skills">Soft skills</a>
-    </aside>
+    <!-- ── TABLE DES MATIÈRES (sidebar) ── -->
+    <nav class="toc" aria-label="Table des matières">
+      <div class="toc__label">Sur cette page</div>
+      <ul class="toc__list">
+        <li>
+          <a href="#vue-ensemble">
+            <span class="toc__dot" style="background:var(--blue)"></span>
+            Vue d'ensemble
+          </a>
+        </li>
+        <li>
+          <a href="#theories">
+            <span class="toc__dot" style="background:var(--blue)"></span>
+            Théories
+          </a>
+        </li>
+        <li>
+          <a href="#langages">
+            <span class="toc__dot" style="background:var(--green)"></span>
+            Langages
+          </a>
+        </li>
+        <li>
+          <a href="#outils">
+            <span class="toc__dot" style="background:var(--purple)"></span>
+            Outils
+          </a>
+        </li>
+        <li>
+          <a href="#soft-skills">
+            <span class="toc__dot" style="background:var(--orange)"></span>
+            Soft skills
+          </a>
+        </li>
+      </ul>
+      <a href="index.html#competences" class="toc__back">← Retour à l'accueil</a>
+    </nav>
 
   </div>
-</section>
+</div>
 
-<footer class="footer footer--pro">
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="footer">
   <div class="container footer__inner">
-    <p>© 2025 Gérard Sokpetin</p>
-    <p class="footer__muted">Actuariat & Data — Portfolio</p>
+    <p>© 2025 Gérard Sokpetin — Actuariat & Data Science</p>
+    <p><a href="index.html">← Retour au portfolio</a></p>
   </div>
 </footer>
 
